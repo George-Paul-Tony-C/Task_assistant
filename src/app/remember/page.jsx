@@ -1,4 +1,4 @@
-export default function Home() {
+export default function Remember() {
 
   let remember = {
     "Remember_1": {

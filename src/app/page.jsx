@@ -8,6 +8,8 @@ export default function Home() {
       <a href="/remember">Remember</a>
       <a href="/settings">Settings</a>
       <a href="/tasks">Tasks</a>
+      <a href="/notes">Notes</a>
+      <a href="/workflow">Workflow Customization</a>
      </div>
     </div>
   );

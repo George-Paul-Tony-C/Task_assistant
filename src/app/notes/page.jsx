@@ -1,4 +1,4 @@
-export default function notes() {
+export default function Notes() {
 
     // Temporary data for notes: API will be availible soon.
     // These are some test values 
