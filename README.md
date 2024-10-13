@@ -3,7 +3,7 @@
 > Star the repository for progress and preview release updates.
 
 # Task Assistant 
-A Personal Task Assistant app web application designed to improve productivity with automated Scheduling, Organization and Notes with support for optional AI assistance.
+A Personal Task Assistant web application designed to improve productivity with automated Scheduling, Organization and Notes with support for optional AI assistance.
 
 ## Features
 1. Automated Task scheduling with a context aware Scheduling Algorithm.
