@@ -10,7 +10,7 @@ A Personal Task Assistant app web application designed to improve productivity w
 2. Simple and clean Interface with easily approachable user Experience.
 3. Key Analytics and Improvement Suggestions.
 4. Task Tracking with Timer Support. 
-5. Conpletely Private on device Data Management. 
+5. Completely Private on device Data Management. 
 6. Long Notes and Memories to keep task with their related information.
    
 ## Getting Started
