@@ -12,6 +12,7 @@ A Personal Task Assistant web application designed to improve productivity with 
 4. Task Tracking with Timer Support. 
 5. Completely Private on device Data Management. 
 6. Long Notes and Memories to keep task with their related information.
+7. Integration with third party calendars (Needs API)
    
 ## Getting Started
 ### Running Development Server
