@@ -3,18 +3,31 @@
 import { Cog6ToothIcon, CalendarDaysIcon, BellSlashIcon, MapIcon, UserIcon, RocketLaunchIcon, ArrowRightEndOnRectangleIcon, RectangleGroupIcon, RectangleStackIcon, PencilSquareIcon, ClipboardDocumentCheckIcon } from '@heroicons/react/24/outline'
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation'
+import moment from 'moment';
+
 
 export function Nav() {
     const router = useRouter();
+    const currentDate = new Date();
+    const formattedDate_mdy = moment(currentDate).format('MMMM D YYYY');
+    const formattedDate_dmys = moment(currentDate).format('DD / MM / YYYY ');
+    const [date_view, set_date_view] = useState(formattedDate_mdy);
+    const switchdate = () => {
+        if (date_view == formattedDate_mdy) {
+            set_date_view(formattedDate_dmys);
+        } else {
+            set_date_view(formattedDate_mdy);
+        }
+    };
     return (
         <>
             <nav className="bg-white fixed w-screen h-20 flex border-b-2 border-neutral-200">
                 <div className="w-[15%] flex justify-start pl-8 items-center text-3xl font-semibold text-black">
                     Task Assistant
                 </div>
-                <div className="w-[15%] flex justify-center items-center text-xl text-black">
-                    October 16 2024
-                </div>
+                <button className="w-[15%] flex justify-center items-center text-2xl text-black" onClick={switchdate}>
+                    {date_view}
+                </button>
                 <div className="w-[40%] p-4 flex justify-center items-center">
                     <input type="text" className="rounded-sm w-full h-12 ring-neutral-300 ring-2 pl-4 pr-4 text-lg text-black" placeholder=" 🔍  Search for anything " />
                 </div>
