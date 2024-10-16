@@ -1,5 +1,6 @@
 import localFont, { Titillium_Web } from "next/font/google";
 import "./globals.css";
+import {SideNav,Nav} from './nav';
 
 const tittilium = Titillium_Web({
   variable: "--font-tittilium-web",
@@ -19,7 +20,13 @@ export default function RootLayout({ children }) {
       <body
         className={`${tittilium.variable} font-titillium antialiased`}
       >
-        {children}
+        <div className="bg-white w-screen min-h-screen">
+        <Nav />
+        <div className="flex w-full h-fit">
+          <SideNav />
+          {children}
+        </div>
+      </div>
       </body>
     </html>
   );
