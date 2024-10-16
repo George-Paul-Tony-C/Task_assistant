@@ -19,14 +19,14 @@ export function Nav() {
                     <input type="text" className="rounded-sm w-full h-12 ring-neutral-300 ring-2 pl-4 pr-4 text-lg text-black" placeholder=" 🔍  Search for anything " />
                 </div>
                 <div className="w-[30%] flex justify-evenly items-center">
-                    <button onClick={() => router.push('/settings')} className="rounded-sm w-12 h-12 ring-neutral-300 ring-2 flex justify-center items-center"><Cog6ToothIcon className="size-8 stroke-black" /></button>
-                    <button onClick={() => router.push('/calendar')} className="rounded-sm w-12 h-12 ring-neutral-300 ring-2 flex justify-center items-center"><CalendarDaysIcon className="size-8 stroke-black" /></button>
-                    <button className="rounded-sm w-12 h-12 ring-neutral-300 ring-2 flex justify-center items-center"><BellSlashIcon className="size-8 stroke-black" /></button>
-                    <button className="rounded-sm w-36 h-12 ring-neutral-300 ring-2 flex justify-evenly items-center">
+                    <button onClick={() => router.push('/settings')} className="hover:bg-gray-100 rounded-sm w-12 h-12 ring-neutral-300 ring-2 flex justify-center items-center"><Cog6ToothIcon className="size-8 stroke-black" /></button>
+                    <button onClick={() => router.push('/calendar')} className="hover:bg-gray-100 rounded-sm w-12 h-12 ring-neutral-300 ring-2 flex justify-center items-center"><CalendarDaysIcon className="size-8 stroke-black" /></button>
+                    <button className="hover:bg-gray-100 rounded-sm w-12 h-12 ring-neutral-300 ring-2 flex justify-center items-center"><BellSlashIcon className="size-8 stroke-black" /></button>
+                    <button className="hover:bg-gray-100 rounded-sm w-36 h-12 ring-neutral-300 ring-2 flex justify-evenly items-center">
                         <h2 className="text-2xl text-black">Timeline</h2>
                         <MapIcon className="size-8 stroke-black" />
                     </button>
-                    <button className="rounded-sm w-12 h-12 ring-neutral-300 ring-2 flex justify-center items-center"><UserIcon className="size-8 stroke-black" /></button>
+                    <button className="hover:bg-gray-100 rounded-sm w-12 h-12 ring-neutral-300 ring-2 flex justify-center items-center"><UserIcon className="size-8 stroke-black" /></button>
                 </div>
             </nav>
             <div className='w-screen h-20'></div>
@@ -44,30 +44,30 @@ export function SideNav() {
 
     return (
         <>
-            <sidenav className={`fixed bg-white transition-all duration-300 ${open ? 'w-64' : 'w-16 pr-4'}`}>
-                <div className={`border-r-2 border-neutral-200 pt-2 relative flex flex-col justify-start space-y-4 items-center h-[92svh] pl-4 transition-all duration-300 ${open ? 'w-64' : 'w-16 pr-4'}`}>
-                    <button className="h-12 w-64 flex justify-evenly items-center text-2xl text-black" onClick={() => router.push('/')}>
-                        <h2 className={`w-36 text-start transition-all delay-800 ${open ? '' : 'hidden'}`}>Dashboard</h2> <RectangleGroupIcon className="size-8 stroke-black" />
+            <sidenav className={`fixed bg-white transition-all duration-300 ${open ? 'w-64' : 'w-16'}`}>
+                <div className={`border-r-2 border-neutral-200 relative flex flex-col justify-start items-center h-[92svh] transition-all duration-300 ${open ? 'w-64' : 'w-16'}`}>
+                    <button className="pl-2 pt-8 pb-8 hover:bg-gray-200 h-12 w-full flex justify-evenly items-center text-2xl text-black" onClick={() => router.push('/')}>
+                        <h2 className={`w-36 text-start transition ease-in-out duration-300 ${open ? 'opacity-100' : 'opacity-50 hidden'}`}>Dashboard</h2> <RectangleGroupIcon className="size-8 stroke-black" />
                     </button>
-                    <button className="h-12 w-64 flex justify-evenly items-center text-2xl text-black" onClick={() => router.push('/tasks')}>
-                        <h2 className={`w-36 text-start transition-all duration-300 ${open ? '' : 'hidden'}`}>Tasks</h2> <ClipboardDocumentCheckIcon className="size-8 stroke-black" />
+                    <button className="pl-2 pt-8 pb-8 hover:bg-gray-200 h-12 w-full flex justify-evenly items-center text-2xl text-black" onClick={() => router.push('/tasks')}>
+                        <h2 className={`w-36 text-start transition ease-in-out duration-300 ${open ? '' : 'hidden'}`}>Tasks</h2> <ClipboardDocumentCheckIcon className="size-8 stroke-black" />
                     </button>
-                    <button className="h-12 w-64 flex justify-evenly items-center text-2xl text-black" onClick={() => router.push('/notes')}>
-                        <h2 className={`w-36 text-start transition-all duration-300 ${open ? '' : 'hidden'}`}>Notes</h2> <PencilSquareIcon className="size-8 stroke-black" />
+                    <button className="pl-2 pt-8 pb-8 hover:bg-gray-200 h-12 w-full flex justify-evenly items-center text-2xl text-black" onClick={() => router.push('/notes')}>
+                        <h2 className={`w-36 text-start transition ease-in-out duration-300 ${open ? '' : 'hidden'}`}>Notes</h2> <PencilSquareIcon className="size-8 stroke-black" />
                     </button>
-                    <button className="h-12 w-64  flex justify-evenly items-center text-2xl text-black" onClick={() => router.push('/calendar')}>
-                        <h2 className={`w-36 text-start transition-all duration-300 ${open ? '' : 'hidden'}`}>Calendar</h2> <CalendarDaysIcon className="size-8 stroke-black" />
+                    <button className="pl-2 pt-8 pb-8 hover:bg-gray-200 h-12 w-full  flex justify-evenly items-center text-2xl text-black" onClick={() => router.push('/calendar')}>
+                        <h2 className={`w-36 text-start transition ease-in-out duration-300 ${open ? '' : 'hidden'}`}>Calendar</h2> <CalendarDaysIcon className="size-8 stroke-black" />
                     </button>
-                    <button className="h-12 w-64 flex justify-evenly items-center text-2xl text-black" onClick={() => router.push('/remember')}>
-                        <h2 className={`w-36 text-start transition-all duration-300 ${open ? 'translate-x-0' : 'hidden -translate-x-28'}`}>Remember</h2> <RectangleStackIcon className="size-8 stroke-black" />
+                    <button className="pl-2 pt-8 pb-8 hover:bg-gray-200 h-12 w-full flex justify-evenly items-center text-2xl text-black" onClick={() => router.push('/remember')}>
+                        <h2 className={`w-36 text-start transition ease-in-out duration-300 ${open ? 'translate-x-0' : 'hidden -translate-x-28'}`}>Remember</h2> <RectangleStackIcon className="size-8 stroke-black" />
                     </button>
-                    <button className="h-12 w-64 flex justify-evenly items-center text-2xl text-black" onClick={() => router.push('/workflow')}>
-                        <h2 className={`w-36 text-start transition-all duration-300 ${open ? '' : 'hidden'}`}>Workflow</h2> <RocketLaunchIcon className="size-8 stroke-black" />
+                    <button className="pl-2 pt-8 pb-8 hover:bg-gray-200 h-12 w-full flex justify-evenly items-center text-2xl text-black" onClick={() => router.push('/workflow')}>
+                        <h2 className={`w-36 text-start transition ease-in-out duration-300 ${open ? '' : 'hidden'}`}>Workflow</h2> <RocketLaunchIcon className="size-8 stroke-black" />
                     </button>
                     <button
-                        className="h-12 w-64 flex justify-evenly items-center text-2xl text-black absolute bottom-12"
+                        className="pl-2 pt-8 pb-8 hover:bg-gray-200 h-12 w-full flex justify-evenly items-center text-2xl text-black absolute bottom-12"
                         onClick={handleToggle}>
-                        <h2 className={`w-36 text-start ${open ? '' : 'hidden'}`}>Hide Menu</h2> <ArrowRightEndOnRectangleIcon className={`size-8 stroke-black transition-all duration-800 ${open ? 'rotate-180' : '-rotate-0'}`} />
+                        <h2 className={`w-36 text-start transition ease-in-out delay-300 ${open ? '' : 'hidden'}`}>Hide Menu</h2> <ArrowRightEndOnRectangleIcon className={`size-8 stroke-black transition-all duration-800 ${open ? 'rotate-180' : '-rotate-0'}`} />
                     </button>
                 </div>
             </sidenav>

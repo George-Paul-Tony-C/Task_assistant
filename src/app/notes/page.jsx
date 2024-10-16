@@ -65,7 +65,7 @@ export default function Notes() {
           {/* This design is a work in progress template */}
           {/* Weird sizing is intenntional*/}
           {Object.keys(notes).map((key) => (
-            <div key={key} className="flex w-80 min-h-32 items-center justify-center flex-col border-2 border-white p-5">
+            <div key={key} className="text-black flex w-80 min-h-32 items-center justify-center flex-col border-2 border-black p-5">
               <h2>{notes[key].name}</h2>
               <p>{notes[key].date}</p>
               <p>{notes[key].content}</p>
