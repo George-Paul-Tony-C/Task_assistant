@@ -8,10 +8,9 @@ export default function Home() {
     <>
       <div className="bg-white w-screen min-h-screen">
         <Nav />
-        <div className='w-screen h-20'></div>
-        <div className="flex">
+        <div className="flex w-full h-full">
           <SideNav />
-          <div className='h-screen w-24 pl-4'></div>
+          <DashWindow/>
         </div>
       </div>
     </>
@@ -20,6 +19,7 @@ export default function Home() {
 
 function Nav() {
   return (
+    <>
     <nav className="bg-white fixed w-screen h-20 flex border-b-2 border-neutral-200">
       <div className="w-[15%] flex justify-start pl-8 items-center text-3xl font-semibold text-black">
         Task Assistant
@@ -28,19 +28,21 @@ function Nav() {
         October 16 2024
       </div>
       <div className="w-[40%] p-4 flex justify-center items-center">
-        <input type="text" className="w-full h-12 ring-neutral-300 ring-2 pl-4 pr-4 text-lg text-black" placeholder=" 🔍  Search for anything " />
+        <input type="text" className="rounded-sm w-full h-12 ring-neutral-300 ring-2 pl-4 pr-4 text-lg text-black" placeholder=" 🔍  Search for anything " />
       </div>
       <div className="w-[30%] flex justify-evenly items-center">
-        <button className="w-12 h-12 ring-neutral-300 ring-2 flex justify-center items-center"><Cog6ToothIcon className="size-8 stroke-black" /></button>
-        <button className="w-12 h-12 ring-neutral-300 ring-2 flex justify-center items-center"><CalendarDaysIcon className="size-8 stroke-black" /></button>
-        <button className="w-12 h-12 ring-neutral-300 ring-2 flex justify-center items-center"><BellSlashIcon className="size-8 stroke-black" /></button>
-        <button className="w-36 h-12 ring-neutral-300 ring-2 flex justify-evenly items-center">
+        <button className="rounded-sm w-12 h-12 ring-neutral-300 ring-2 flex justify-center items-center"><Cog6ToothIcon className="size-8 stroke-black" /></button>
+        <button className="rounded-sm w-12 h-12 ring-neutral-300 ring-2 flex justify-center items-center"><CalendarDaysIcon className="size-8 stroke-black" /></button>
+        <button className="rounded-sm w-12 h-12 ring-neutral-300 ring-2 flex justify-center items-center"><BellSlashIcon className="size-8 stroke-black" /></button>
+        <button className="rounded-sm w-36 h-12 ring-neutral-300 ring-2 flex justify-evenly items-center">
           <h2 className="text-2xl text-black">Timeline</h2>
           <MapIcon className="size-8 stroke-black" />
         </button>
-        <button className="w-12 h-12 ring-neutral-300 ring-2 flex justify-center items-center"><UserIcon className="size-8 stroke-black" /></button>
+        <button className="rounded-sm w-12 h-12 ring-neutral-300 ring-2 flex justify-center items-center"><UserIcon className="size-8 stroke-black" /></button>
       </div>
     </nav>
+    <div className='w-screen h-20'></div>
+    </>
   )
 }
 
@@ -51,8 +53,10 @@ function SideNav() {
   const handleToggle = () => {
     setOpen(!open);
   };
+
   return (
-    <sidenav className={`fixed bg-white h-screen w-64 transition-all duration-300 ${open ? 'w-64' : 'w-16 pr-4'}`}>
+    <>
+    <sidenav className={`fixed bg-white h-screen transition-all duration-300 ${open ? 'w-64' : 'w-16 pr-4'}`}>
       <div className={`border-r-2 border-neutral-200 pt-2 relative flex flex-col justify-start space-y-4 items-center h-[92svh] pl-4 transition-all duration-300 ${open ? 'w-64' : 'w-16 pr-4'}`}>
         <button className="h-12 w-64 flex justify-evenly items-center text-2xl text-black">
           <h2 className={`w-36 text-start transition-all delay-800 ${open ? '':'hidden'}`}>Dashboard</h2> <RectangleGroupIcon className="size-8 stroke-black" />
@@ -79,6 +83,8 @@ function SideNav() {
         </button>
       </div>
     </sidenav>
+    <div className={`h-screen transition-all duration-200 ${open ? 'w-72':'w-16 pl-4'}`}></div>
+    </>
   )
 }
 
@@ -95,5 +101,13 @@ function Assistant_pane(){
     <>
       <div className="w-full h-96 bg-gray-300"></div>
     </>
+  )
+}
+
+function DashWindow(){
+  return (
+    <div className='w-full h-screen bg-slate-200 p-4'>
+       {/* We Draw all the layers into this  */}
+    </div>
   )
 }
