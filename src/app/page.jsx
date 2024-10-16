@@ -5,23 +5,14 @@ import React, { useState } from 'react';
 
 export default function Home() {
   return (
-    /*<div className="flex flex-col justify-center h-screen p-5">
-     <div className="text-6xl">Dashboard Page</div>
-     <div className="pt-10 text-4xl pb-4">Pages: </div>
-     <div className="flex flex-col justify-start text-2xl text-blue-400">
-      <a href="/calendar">Calendar</a>
-      <a href="/remember">Remember</a>
-      <a href="/settings">Settings</a>
-      <a href="/tasks">Tasks</a>
-      <a href="/notes">Notes</a>
-      <a href="/workflow">Workflow Customization</a>
-     </div>
-    </div>
-  );*/
     <>
       <div className="bg-white w-screen min-h-screen">
         <Nav />
-        <SideNav />
+        <div className='w-screen h-20'></div>
+        <div className="flex">
+          <SideNav />
+          <div className='h-screen w-24 pl-4'></div>
+        </div>
       </div>
     </>
   )
@@ -29,7 +20,7 @@ export default function Home() {
 
 function Nav() {
   return (
-    <nav className="w-screen h-20 flex border-b-2 border-neutral-200">
+    <nav className="bg-white fixed w-screen h-20 flex border-b-2 border-neutral-200">
       <div className="w-[15%] flex justify-start pl-8 items-center text-3xl font-semibold text-black">
         Task Assistant
       </div>
@@ -61,32 +52,48 @@ function SideNav() {
     setOpen(!open);
   };
   return (
-    <sidenav className="h-screen w-72 transition-all duration-300">
-      <div className={`border-r-2 border-neutral-200 pt-2 relative flex flex-col justify-start space-y-4 items-center h-[92svh] w-64 pl-4 transition-all duration-300 ${open ? 'translate-x-0' : '-translate-x-44'}`}>
+    <sidenav className={`fixed bg-white h-screen w-64 transition-all duration-300 ${open ? 'w-64' : 'w-16 pr-4'}`}>
+      <div className={`border-r-2 border-neutral-200 pt-2 relative flex flex-col justify-start space-y-4 items-center h-[92svh] pl-4 transition-all duration-300 ${open ? 'w-64' : 'w-16 pr-4'}`}>
         <button className="h-12 w-64 flex justify-evenly items-center text-2xl text-black">
-          <h2 className="w-36 text-start">Dashboard</h2> <RectangleGroupIcon className="size-8 stroke-black" />
+          <h2 className={`w-36 text-start transition-all delay-800 ${open ? '':'hidden'}`}>Dashboard</h2> <RectangleGroupIcon className="size-8 stroke-black" />
         </button>
         <button className="h-12 w-64 flex justify-evenly items-center text-2xl text-black">
-          <h2 className="w-36 text-start">Tasks</h2> <ClipboardDocumentCheckIcon className="size-8 stroke-black" />
+          <h2 className={`w-36 text-start transition-all duration-300 ${open ? '':'hidden'}`}>Tasks</h2> <ClipboardDocumentCheckIcon className="size-8 stroke-black" />
         </button>
         <button className="h-12 w-64 flex justify-evenly items-center text-2xl text-black">
-          <h2 className="w-36 text-start">Notes</h2> <PencilSquareIcon className="size-8 stroke-black" />
+          <h2 className={`w-36 text-start transition-all duration-300 ${open ? '':'hidden'}`}>Notes</h2> <PencilSquareIcon className="size-8 stroke-black" />
         </button>
         <button className="h-12 w-64  flex justify-evenly items-center text-2xl text-black">
-          <h2 className="w-36 text-start">Calendar</h2> <CalendarDaysIcon className="size-8 stroke-black" />
+          <h2 className={`w-36 text-start transition-all duration-300 ${open ? '':'hidden'}`}>Calendar</h2> <CalendarDaysIcon className="size-8 stroke-black" />
         </button>
         <button className="h-12 w-64 flex justify-evenly items-center text-2xl text-black">
-          <h2 className="w-36 text-start">Remember</h2> <RectangleStackIcon className="size-8 stroke-black" />
+          <h2 className={`w-36 text-start transition-all duration-300 ${open ? 'translate-x-0':'hidden -translate-x-28'}`}>Remember</h2> <RectangleStackIcon className="size-8 stroke-black" />
         </button>
         <button className="h-12 w-64 flex justify-evenly items-center text-2xl text-black">
-          <h2 className="w-36 text-start">Workflow</h2> <RocketLaunchIcon className="size-8 stroke-black" />
+          <h2 className={`w-36 text-start transition-all duration-300 ${open ? '':'hidden'}`}>Workflow</h2> <RocketLaunchIcon className="size-8 stroke-black" />
         </button>
         <button
           className="h-12 w-64 flex justify-evenly items-center text-2xl text-black absolute bottom-12"
           onClick={handleToggle}>
-          <h2 className="w-36 text-start">Hide Menu</h2> <ArrowRightEndOnRectangleIcon className={`size-8 stroke-black transition-all duration-800 ${open ? 'rotate-180' : '-rotate-0'}`} />
+          <h2 className={`w-36 text-start ${open ? '':'hidden'}`}>Hide Menu</h2> <ArrowRightEndOnRectangleIcon className={`size-8 stroke-black transition-all duration-800 ${open ? 'rotate-180' : '-rotate-0'}`} />
         </button>
       </div>
     </sidenav>
+  )
+}
+
+function Overview_pane(){
+  return(
+    <>
+      <div className="w-[60%] h-96 bg-gray-500"></div>
+    </>
+  )
+}
+
+function Assistant_pane(){
+  return(
+    <>
+      <div className="w-full h-96 bg-gray-300"></div>
+    </>
   )
 }
