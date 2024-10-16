@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <div className="bg-white w-screen min-h-screen">
         <Nav />
-        <div className="flex w-full h-full">
+        <div className="flex w-full h-fit">
           <SideNav />
           <DashWindow/>
         </div>
@@ -56,7 +56,7 @@ function SideNav() {
 
   return (
     <>
-    <sidenav className={`fixed bg-white h-screen transition-all duration-300 ${open ? 'w-64' : 'w-16 pr-4'}`}>
+    <sidenav className={`fixed bg-white transition-all duration-300 ${open ? 'w-64' : 'w-16 pr-4'}`}>
       <div className={`border-r-2 border-neutral-200 pt-2 relative flex flex-col justify-start space-y-4 items-center h-[92svh] pl-4 transition-all duration-300 ${open ? 'w-64' : 'w-16 pr-4'}`}>
         <button className="h-12 w-64 flex justify-evenly items-center text-2xl text-black">
           <h2 className={`w-36 text-start transition-all delay-800 ${open ? '':'hidden'}`}>Dashboard</h2> <RectangleGroupIcon className="size-8 stroke-black" />
@@ -91,7 +91,7 @@ function SideNav() {
 function Overview_pane(){
   return(
     <>
-      <div className="w-[60%] h-96 bg-gray-500"></div>
+      <div className="w-[70%] h-[30rem] bg-gray-300 border-2"></div>
     </>
   )
 }
@@ -99,15 +99,38 @@ function Overview_pane(){
 function Assistant_pane(){
   return(
     <>
-      <div className="w-full h-96 bg-gray-300"></div>
+      <div className="w-full h-[30rem] bg-gray-600 border-2"></div>
+    </>
+  )
+}
+
+function Notes_pane(){
+  return(
+    <>
+      <div className="w-[140%] h-[26rem] bg-gray-400 border-2"></div>
+    </>
+  )
+}
+
+function Brief_pane(){
+  return(
+    <>
+      <div className="w-full h-[26rem] bg-gray-500 border-2"></div>
     </>
   )
 }
 
 function DashWindow(){
   return (
-    <div className='w-full h-screen bg-slate-200 p-4'>
-       {/* We Draw all the layers into this  */}
+    <div className='w-full h-fit bg-slate-200'>
+      <div className='flex'>
+        <Overview_pane/>
+        <Assistant_pane/>
+      </div>
+      <div className='flex'>
+        <Notes_pane/>
+        <Brief_pane/>
+      </div>
     </div>
   )
 }
