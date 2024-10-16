@@ -20,9 +20,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${tittilium.variable} font-titillium antialiased`}
       >
-        <div className="bg-white w-screen min-h-screen">
+        <div className="bg-white w-screen h-screen">
         <Nav />
-        <div className="flex w-full h-fit">
+        <div className="flex w-full h-full fixed">
           <SideNav />
           {children}
         </div>

@@ -1,3 +1,4 @@
+import * as motion from "framer-motion/client"
 
 export default function Home() {
   return (
@@ -10,7 +11,7 @@ export default function Home() {
 function Overview_pane() {
   return (
     <>
-      <div className="w-[70%] h-[32rem] bg-gray-300 border-2"></div>
+      <motion.div initial={{ scale: 0.7, opacity: 0,zIndex: 0 }} animate={{scale: 1, opacity: 100, zIndex: 0}} className="z-0 w-[70%] h-[32rem] bg-gray-300 border-2"></motion.div>
     </>
   )
 }
@@ -18,7 +19,7 @@ function Overview_pane() {
 function Assistant_pane() {
   return (
     <>
-      <div className="w-full h-[32rem] bg-gray-600 border-2"></div>
+      <motion.div initial={{ scale: 0.7, opacity: 0 }} animate={{scale: 1, opacity: 100}} className="w-full h-[32rem] bg-gray-600 border-2"></motion.div>
     </>
   )
 }
@@ -26,7 +27,7 @@ function Assistant_pane() {
 function Notes_pane() {
   return (
     <>
-      <div className="w-[140%] h-[24rem] bg-gray-400 border-2"></div>
+      <motion.div initial={{ scale: 0.7, opacity: 0 }} animate={{scale: 1, opacity: 100}} className="w-[140%] h-[20rem] bg-gray-400 border-2"></motion.div>
     </>
   )
 }
@@ -34,7 +35,7 @@ function Notes_pane() {
 function Brief_pane() {
   return (
     <>
-      <div className="w-full h-[24rem] bg-gray-500 border-2"></div>
+      <motion.div initial={{ scale: 0.7, opacity: 0 }} animate={{scale: 1, opacity: 100}} className="w-full h-[20rem] bg-gray-500 border-2"></motion.div>
     </>
   )
 }
