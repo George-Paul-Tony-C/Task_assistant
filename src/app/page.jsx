@@ -5,9 +5,9 @@ import { ActivityChart } from "./nav";
 
 export default function Home() {
   return (
-    <>
+    <div className="overflow-auto w-full h-screen">
       <DashWindow />
-    </>
+    </div>
   )
 }
 
@@ -53,12 +53,12 @@ function Taskpane() {
       <motion.div
         variants={container}
         initial="hidden"
-        animate="visible" className="flex flex-col items-center justify-evenly h-[20rem] pl-2 pr-2">
+        animate="visible" className="flex flex-col items-center justify-evenly h-[20rem] lg:pl-2 lg:pr-2">
         {Object.keys(Task).map((key) => (
-          <motion.div key={key} variants={item} className="text-black bg-neutral-300 flex w-[26rem] h-18 items-center justify-between ring-neutral-300 ring-2 p-5">
+          <motion.div key={key} variants={item} className="text-black bg-neutral-300 flex lg:w-[26rem] w-64 h-18 items-center justify-between ring-neutral-300 ring-2 p-5">
             <div>
-              <p className="text-xl">{Task[key].date}</p>
-              <h2 className="font-semibold text-xl">{Task[key].name}</h2>
+              <p className="lg:text-xl text-sm">{Task[key].date}</p>
+              <h2 className="font-semibold lg:text-xl text-sm">{Task[key].name}</h2>
             </div>
             <div className="flex justify-end space-x-4">
               <button className="hover:bg-gray-100 rounded-sm w-10 h-10 ring-neutral-400 ring-2 flex justify-center items-center"><CheckIcon className="size-7 stroke-black" /></button>
@@ -67,7 +67,7 @@ function Taskpane() {
           </motion.div>
         ))}
       </motion.div>
-      <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 100, scale: 1 }} className="flex justify-between w-[26rem] h-18">
+      <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 100, scale: 1 }} className="flex justify-between lg:w-[26rem] w-64 h-18">
         <button className="hover:bg-gray-100 rounded-sm w-[48%] bg-neutral-300 h-8 ring-neutral-300 ring-2 flex justify-evenly items-center">
           <ArrowPathIcon className="size-6 stroke-black" />
         </button>
@@ -82,7 +82,7 @@ function Taskpane() {
 function Overview_pane() {
   return (
     <>
-      <div className="w-[45%] h-[25rem] border-2 bg-neutral-200 pl-5 pr-5 pt-2 flex flex-col items-center">
+      <div className="lg:w-[45%] w-full h-[25rem] border-2 bg-neutral-200 lg:pl-5 pl-28  pr-5 pt-2 flex flex-col items-center">
         <div className="text-2xl text-black w-[26rem] text-start">Today's overview</div>
         <Taskpane />
       </div>
@@ -117,7 +117,7 @@ function Assistant_pane() {
 
 function Notes_pane() {
   return (
-    <div className="w-[140%] h-[16rem] border-2 bg-neutral-300 pl-5 pr-5 pt-2 flex flex-col items-center">
+    <div className="lg:w-[140%] w-full h-[16rem] border-2 bg-neutral-300 pl-5 pr-5 pt-2 flex flex-col items-center">
       <div className="text-2xl text-black text-start pb-1">Memories and Notes</div>
       <div className="flex justify-evenly w-full">
         <div className="w-64 h-48 bg-neutral-200 hover:bg-neutral-200/70"></div>
@@ -141,11 +141,11 @@ function Brief_pane() {
 function DashWindow() {
   return (
     <div className='w-full h-fit bg-slate-200'>
-      <div className='flex'>
+      <div className='lg:flex'>
         <Overview_pane />
         <Assistant_pane />
       </div>
-      <div className='flex'>
+      <div className='lg:flex'>
         <Notes_pane />
         <Brief_pane />
       </div>

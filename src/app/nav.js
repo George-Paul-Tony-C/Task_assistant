@@ -25,20 +25,20 @@ export function Nav() {
     return (
         <>
             <nav className="bg-white fixed w-screen h-16 flex border-b-2 border-neutral-200">
-                <div className="w-[15%] flex justify-start pl-5 items-center text-2xl font-semibold text-black">
+                <div className="lg:w-[15%] w-[70%] flex justify-start pl-5 items-center text-2xl font-semibold text-black">
                     Task Assistant
                 </div>
-                <button className="w-[15%] flex justify-center items-center text-xl text-black" onClick={switchdate}>
+                <button className="lg:w-[15%] lg:flex hidden justify-center items-center text-xl text-black" onClick={switchdate}>
                     {date_view}
                 </button>
-                <div className="w-[40%] p-4 flex justify-center items-center">
+                <div className="lg:w-[40%] p-4 lg:flex hidden justify-center items-center">
                     <input type="text" className="rounded-sm w-full h-10 ring-neutral-300 ring-2 pl-4 pr-4 text-lg text-black" placeholder=" 🔍  Search for anything " />
                 </div>
-                <div className="w-[30%] flex justify-evenly items-center">
+                <div className="lg:w-[30%] w-[70%] flex justify-evenly items-center">
                     <button onClick={() => router.push('/settings')} className="hover:bg-gray-100 rounded-sm w-10 h-10 ring-neutral-300 ring-2 flex justify-center items-center"><Cog6ToothIcon className="size-7 stroke-black" /></button>
                     <button onClick={() => router.push('/calendar')} className="hover:bg-gray-100 rounded-sm w-10 h-10 ring-neutral-300 ring-2 flex justify-center items-center"><CalendarDaysIcon className="size-7 stroke-black" /></button>
-                    <button className="hover:bg-gray-100 rounded-sm w-10 h-10 ring-neutral-300 ring-2 flex justify-center items-center"><BellSlashIcon className="size-7 stroke-black" /></button>
-                    <button onClick={() => router.push('/timeline')} className="hover:bg-gray-100 rounded-sm w-36 h-10 ring-neutral-300 ring-2 flex justify-evenly items-center">
+                    <button className="hover:bg-gray-100 rounded-sm w-10 h-10 ring-neutral-300 ring-2 lg:flex hidden justify-center items-center"><BellSlashIcon className="size-7 stroke-black" /></button>
+                    <button onClick={() => router.push('/timeline')} className="hover:bg-gray-100 rounded-sm w-36 h-10 ring-neutral-300 ring-2 lg:flex hidden justify-evenly items-center">
                         <h2 className="text-xl text-black">Timeline</h2>
                         <MapIcon className="size-7 stroke-black" />
                     </button>
