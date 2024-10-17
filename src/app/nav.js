@@ -35,11 +35,11 @@ export function Nav() {
                     <button onClick={() => router.push('/settings')} className="hover:bg-gray-100 rounded-sm w-12 h-12 ring-neutral-300 ring-2 flex justify-center items-center"><Cog6ToothIcon className="size-8 stroke-black" /></button>
                     <button onClick={() => router.push('/calendar')} className="hover:bg-gray-100 rounded-sm w-12 h-12 ring-neutral-300 ring-2 flex justify-center items-center"><CalendarDaysIcon className="size-8 stroke-black" /></button>
                     <button className="hover:bg-gray-100 rounded-sm w-12 h-12 ring-neutral-300 ring-2 flex justify-center items-center"><BellSlashIcon className="size-8 stroke-black" /></button>
-                    <button className="hover:bg-gray-100 rounded-sm w-36 h-12 ring-neutral-300 ring-2 flex justify-evenly items-center">
+                    <button onClick={() => router.push('/timeline')} className="hover:bg-gray-100 rounded-sm w-36 h-12 ring-neutral-300 ring-2 flex justify-evenly items-center">
                         <h2 className="text-2xl text-black">Timeline</h2>
                         <MapIcon className="size-8 stroke-black" />
                     </button>
-                    <button className="hover:bg-gray-100 rounded-sm w-12 h-12 ring-neutral-300 ring-2 flex justify-center items-center"><UserIcon className="size-8 stroke-black" /></button>
+                    <button onClick={() => router.push('/user')} className="hover:bg-gray-100 rounded-sm w-12 h-12 ring-neutral-300 ring-2 flex justify-center items-center"><UserIcon className="size-8 stroke-black" /></button>
                 </div>
             </nav>
             <div className='w-screen h-20'></div>
