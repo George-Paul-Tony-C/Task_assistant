@@ -22,7 +22,7 @@ export function Nav() {
     return (
         <>
             <nav className="bg-white fixed w-screen h-16 flex border-b-2 border-neutral-200">
-                <div className="w-[15%] flex justify-start pl-8 items-center text-2xl font-semibold text-black">
+                <div className="w-[15%] flex justify-start pl-5 items-center text-2xl font-semibold text-black">
                     Task Assistant
                 </div>
                 <button className="w-[15%] flex justify-center items-center text-xl text-black" onClick={switchdate}>
