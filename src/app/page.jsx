@@ -9,16 +9,6 @@ export default function Home() {
   )
 }
 
-function Overview_pane() {
-  return (
-    <>
-      <div className="p-5 w-[70%] h-[32rem] border-2 bg-neutral-200">
-        <div className="text-2xl text-black">Today's overview</div>
-        <Taskpane />
-      </div>
-    </>
-  )
-}
 
 function Taskpane() {
   const container = {
@@ -57,27 +47,37 @@ function Taskpane() {
   };
 
   return (
-    <>
-      <div className="h-4"></div>
+    <div className="flex flex-col items-center">
       <motion.div
         variants={container}
         initial="hidden"
-        animate="visible" className="flex flex-col items-center justify-evenly h-[24rem]">
+        animate="visible" className="flex flex-col items-center justify-evenly h-[20rem] pl-2 pr-2">
         {Object.keys(Task).map((key) => (
-          <motion.div key={key} variants={item} className="text-black flex w-full h-28 items-center justify-center flex-col ring-neutral-300 ring-2 p-5">
+          <motion.div key={key} variants={item} className="text-black flex w-96 h-18 items-stretch justify-center flex-col ring-neutral-300 ring-2 p-5">
             <p>{Task[key].date}</p>
             <h2>{Task[key].name}</h2>
           </motion.div>
         ))}
       </motion.div>
-      <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 100, scale: 1 }} className="flex justify-between">
-        <button className="hover:bg-gray-100 rounded-sm w-[48%] h-12 ring-neutral-300 ring-2 flex justify-evenly items-center">
-          <ArrowPathIcon className="size-8 stroke-black" />
+      <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 100, scale: 1 }} className="flex justify-between w-96 h-18">
+        <button className="hover:bg-gray-100 rounded-sm w-[48%] h-8 ring-neutral-300 ring-2 flex justify-evenly items-center">
+          <ArrowPathIcon className="size-6 stroke-black" />
         </button>
-        <button className="hover:bg-gray-100 rounded-sm w-[48%] h-12 ring-neutral-300 ring-2 flex justify-evenly items-center">
-          <PlusIcon className="size-8 stroke-black" />
+        <button className="hover:bg-gray-100 rounded-sm w-[48%] h-8 ring-neutral-300 ring-2 flex justify-evenly items-center">
+          <PlusIcon className="size-6 stroke-black" />
         </button>
       </motion.div>
+    </div>
+  )
+}
+
+function Overview_pane() {
+  return (
+    <>
+      <div className="w-[45%] h-[25rem] border-2 bg-neutral-200 pl-5 pr-5 pt-2 flex flex-col items-center">
+        <div className="text-xl text-black w-96 text-start">Today's overview</div>
+        <Taskpane />
+      </div>
     </>
   )
 }
@@ -85,7 +85,7 @@ function Taskpane() {
 function Assistant_pane() {
   return (
     <>
-      <div className="w-full h-[32rem] bg-gray-600 border-2"></div>
+      <div className="w-full h-[25rem] bg-gray-600 border-2"></div>
     </>
   )
 }
@@ -93,7 +93,7 @@ function Assistant_pane() {
 function Notes_pane() {
   return (
     <>
-      <div className="w-[140%] h-[20rem] bg-gray-400 border-2"></div>
+      <div className="w-[140%] h-[16rem] bg-gray-400 border-2"></div>
     </>
   )
 }
@@ -101,7 +101,7 @@ function Notes_pane() {
 function Brief_pane() {
   return (
     <>
-      <div className="w-full h-[20rem] bg-gray-500 border-2"></div>
+      <div className="w-full h-[16rem] bg-gray-500 border-2"></div>
     </>
   )
 }
