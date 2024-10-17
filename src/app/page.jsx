@@ -1,6 +1,7 @@
 import { PlusIcon, ArrowPathIcon, CheckIcon, EllipsisHorizontalIcon } from "@heroicons/react/24/outline";
 import { PlayIcon } from "@heroicons/react/24/solid";
 import * as motion from "framer-motion/client"
+import { ActivityChart } from "./nav";
 
 export default function Home() {
   return (
@@ -125,7 +126,9 @@ function Notes_pane() {
 function Brief_pane() {
   return (
     <>
-      <div className="w-full h-[16rem] bg-gray-500 border-2"></div>
+      <div className="w-full h-[16rem] border-2 flex justify-center items-center flex-col">
+        <ActivityChart/>
+      </div>
     </>
   )
 }
