@@ -104,8 +104,8 @@ export const ActivityChart = () => {
             borderWidth: 2,
         },
         {  
-            label: 'Productivity',
-            data: [2, 3, 3, 4, 1, 0, 3],
+            label: 'Productivity Hours',
+            data: [2, 3, 3, 4, 2, 1, 5],
             backgroundColor: 'rgba(155, 0, 0, 1)',
             borderColor: 'rgba(155, 0, 0, 1)',
             borderWidth: 2,

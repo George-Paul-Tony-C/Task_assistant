@@ -95,8 +95,8 @@ function Assistant_pane() {
     <>
       <div className="w-full h-[25rem] border-2 flex flex-col justify-evenly items-center bg-neutral-100">
         <div className="flex justify-evenly w-full">
-          <div className="w-64 h-64 bg-neutral-400 flex justify-center items-center rounded-full">
-            <div className="w-48 h-48 bg-neutral-300 rounded-full flex justify-center items-center">
+          <div className="w-64 h-64 bg-blue-300 flex justify-center items-center rounded-full">
+            <div className="w-48 h-48 bg-blue-200 rounded-full flex justify-center items-center">
               <PlayIcon className="size-24 fill-black" />
             </div>
           </div>
@@ -117,9 +117,14 @@ function Assistant_pane() {
 
 function Notes_pane() {
   return (
-    <>
-      <div className="w-[140%] h-[16rem] bg-gray-400 border-2"></div>
-    </>
+    <div className="w-[140%] h-[16rem] border-2 bg-neutral-300 pl-5 pr-5 pt-2 flex flex-col items-center">
+      <div className="text-2xl text-black text-start pb-1">Memories and Notes</div>
+      <div className="flex justify-evenly w-full">
+        <div className="w-64 h-48 bg-neutral-200 hover:bg-neutral-200/70"></div>
+        <div className="w-64 h-48 bg-neutral-200 hover:bg-neutral-200/70"></div>
+        <div className="w-64 h-48 bg-neutral-200 hover:bg-neutral-200/70"></div>
+      </div>
+    </div>
   )
 }
 
