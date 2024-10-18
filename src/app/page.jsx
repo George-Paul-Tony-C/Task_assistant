@@ -1,4 +1,4 @@
-import { PlusIcon, ArrowPathIcon, CheckIcon, EllipsisHorizontalIcon } from "@heroicons/react/24/outline";
+import { PlusIcon, ArrowPathIcon, CheckIcon, EllipsisHorizontalIcon, PaperClipIcon } from "@heroicons/react/24/outline";
 import { PlayIcon } from "@heroicons/react/24/solid";
 import * as motion from "framer-motion/client"
 import { ActivityChart } from "./nav";
@@ -116,14 +116,64 @@ function Assistant_pane() {
 }
 
 function Notes_pane() {
+
+  const container = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1
+    }
+  };
+
+  let Notes = {
+    "Note_1": {
+      name: "Meeting Agenda",
+      desc: "Meeting agenda for Developer meeting regarding the product roadmap",
+    },
+    "Note_2": {
+      name: "Exam Syllabus",
+      desc: "",
+    },
+    "Note_3": {
+      name: "Paper Research",
+      desc: "Key points for paper research on an ideal task management system.",
+    },
+  };
   return (
+
     <div className="lg:w-[140%] w-full h-[16rem] border-2 bg-neutral-300 pl-5 pr-5 pt-2 flex flex-col items-center">
       <div className="text-2xl text-black text-start pb-1">Memories and Notes</div>
-      <div className="flex justify-evenly w-full">
-        <div className="w-64 h-48 bg-neutral-200 hover:bg-neutral-200/70"></div>
-        <div className="w-64 h-48 bg-neutral-200 hover:bg-neutral-200/70"></div>
-        <div className="w-64 h-48 bg-neutral-200 hover:bg-neutral-200/70"></div>
-      </div>
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="visible" className="flex justify-evenly w-full">
+        {Object.keys(Notes).map((key) => (
+          <motion.div key={key} variants={item} className="w-64 h-48 bg-neutral-200 hover:bg-neutral-200/70 flex flex-col justify-start space-y-2 items-center p-4">
+            <div className="flex justify-evenly items-center">
+              <div className="w-48 pl-4">
+                <h1 className="text-black text-xl font-semibold">{Notes[key].name}</h1>
+                <h1 className="text-black text-xl">Notes</h1>
+              </div>
+              <div>
+                <PaperClipIcon className="size-7 stroke-black" />
+              </div>
+            </div>
+            <div className="text-black w-48 pl-0.5">{Notes[key].desc}</div>
+          </motion.div>
+        ))}
+      </motion.div>
     </div>
   )
 }
@@ -132,7 +182,7 @@ function Brief_pane() {
   return (
     <>
       <div className="w-full h-[16rem] border-2 flex justify-center items-center flex-col">
-        <ActivityChart/>
+        <ActivityChart />
       </div>
     </>
   )
