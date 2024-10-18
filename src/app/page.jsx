@@ -160,7 +160,7 @@ function Notes_pane() {
         initial="hidden"
         animate="visible" className="flex justify-evenly w-full">
         {Object.keys(Notes).map((key) => (
-          <motion.div key={key} variants={item} className="w-64 h-48 bg-neutral-200 hover:bg-neutral-200/70 flex flex-col justify-start space-y-2 items-center p-4">
+          <motion.div key={key} variants={item} className="w-64 h-48 bg-neutral-200 hover:bg-neutral-200/70 flex flex-col justify-start space-y-2 items-center p-4 border-2 border-neutral-400">
             <div className="flex justify-evenly items-center">
               <div className="w-48 pl-4">
                 <h1 className="text-black text-xl font-semibold">{Notes[key].name}</h1>

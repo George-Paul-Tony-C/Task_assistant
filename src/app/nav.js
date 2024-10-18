@@ -1,6 +1,6 @@
 'use client'
 
-import { Cog6ToothIcon, CalendarDaysIcon, BellSlashIcon, MapIcon, UserIcon, RocketLaunchIcon, ArrowRightEndOnRectangleIcon, RectangleGroupIcon, RectangleStackIcon, PencilSquareIcon, ClipboardDocumentCheckIcon } from '@heroicons/react/24/outline'
+import { Cog6ToothIcon, CalendarDaysIcon, BellSlashIcon, MapIcon, UserIcon, RocketLaunchIcon, ArrowRightEndOnRectangleIcon, RectangleGroupIcon, RectangleStackIcon, PencilSquareIcon, ClipboardDocumentCheckIcon, BellAlertIcon } from '@heroicons/react/24/outline'
 import React, { useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
@@ -15,6 +15,7 @@ export function Nav() {
     const formattedDate_mdy = moment(currentDate).format('MMMM D YYYY');
     const formattedDate_dmys = moment(currentDate).format('DD / MM / YYYY ');
     const [date_view, set_date_view] = useState(formattedDate_mdy);
+    const [notif, set_notif] = useState(false);
     const switchdate = () => {
         if (date_view == formattedDate_mdy) {
             set_date_view(formattedDate_dmys);
@@ -22,6 +23,10 @@ export function Nav() {
             set_date_view(formattedDate_mdy);
         }
     };
+
+    const switchNotif = () => {
+        set_notif(!notif);
+    }
     return (
         <>
             <nav className="bg-white fixed w-screen h-16 flex border-b-2 border-neutral-200">
@@ -37,7 +42,7 @@ export function Nav() {
                 <div className="lg:w-[30%] w-[70%] flex justify-evenly items-center">
                     <button onClick={() => router.push('/settings')} className="hover:bg-gray-100 rounded-sm w-10 h-10 ring-neutral-300 ring-2 flex justify-center items-center"><Cog6ToothIcon className="size-7 stroke-black" /></button>
                     <button onClick={() => router.push('/calendar')} className="hover:bg-gray-100 rounded-sm w-10 h-10 ring-neutral-300 ring-2 flex justify-center items-center"><CalendarDaysIcon className="size-7 stroke-black" /></button>
-                    <button className="hover:bg-gray-100 rounded-sm w-10 h-10 ring-neutral-300 ring-2 lg:flex hidden justify-center items-center"><BellSlashIcon className="size-7 stroke-black" /></button>
+                    <button onClick={switchNotif}  className="hover:bg-gray-100 rounded-sm w-10 h-10 ring-neutral-300 ring-2 lg:flex hidden justify-center items-center">{notif ? <BellSlashIcon className="size-7 stroke-black" />: <BellAlertIcon className="size-7 stroke-black" />}</button>
                     <button onClick={() => router.push('/timeline')} className="hover:bg-gray-100 rounded-sm w-36 h-10 ring-neutral-300 ring-2 lg:flex hidden justify-evenly items-center">
                         <h2 className="text-xl text-black">Timeline</h2>
                         <MapIcon className="size-7 stroke-black" />
