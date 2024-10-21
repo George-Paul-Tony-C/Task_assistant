@@ -4,9 +4,11 @@ import { Cog6ToothIcon, CalendarDaysIcon, BellSlashIcon, MapIcon, UserIcon, Rock
 import React, { useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
+import toast from 'react-hot-toast';
 
 import { useRouter } from 'next/navigation'
 import moment from 'moment';
+import { Toaster } from 'react-hot-toast';
 
 
 export function Nav() {
@@ -26,9 +28,16 @@ export function Nav() {
 
     const switchNotif = () => {
         set_notif(!notif);
+        if (notif){
+          toast("Notification Turned on",{icon: '🔔'});
+        } else{
+          toast("Notification Turned off",{icon: '🔕'});
+        }
     }
+    
     return (
         <>
+            <Toaster position="bottom-right" reverseOrder={false}/>
             <nav className="bg-white fixed w-screen h-16 flex border-b-2 border-neutral-200">
                 <div className="lg:w-[15%] w-[70%] flex justify-start pl-5 items-center text-2xl font-semibold text-black">
                     Task Assistant
