@@ -44,12 +44,14 @@ export default function Calendar() {
             key={`day-${dayCount}`}
             className={`border p-4 ${isToday ? 'bg-blue-500 text-white rounded-full' : ''}`}
           >
+            <div className='flex justify-center items-center'>
             {dayCount}
+            </div>
           </td>
         );
         dayCount++;
       } else {
-        calendarDays.push(<td key={`empty-${i}`} className="border p-4 text-gray-400"></td>);
+        calendarDays.push(<td key={`empty-${i}`} className="p-4 text-gray-400"></td>);
       }
     }
 
@@ -73,9 +75,9 @@ export default function Calendar() {
   }
 
   return (
-    <div className="p-5">
+    <div className="p-5 w-[30%] border-r-2 border-gray-200 text-black">
       <div className="text-3xl text-black mb-4">Calendar Page</div>
-      <div className="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg">
+      <div className="max-w-md mx-auto p-6 bg-white rounded-lg">
         <div className="flex justify-between items-center mb-4">
           {/* Month dropdown */}
           <select
