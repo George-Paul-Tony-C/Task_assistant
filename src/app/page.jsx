@@ -1,7 +1,31 @@
+
 import { PlusIcon, ArrowPathIcon, CheckIcon, EllipsisHorizontalIcon, PaperClipIcon } from "@heroicons/react/24/outline";
 import { PlayIcon } from "@heroicons/react/24/solid";
 import * as motion from "framer-motion/client"
-import { ActivityChart } from "./nav";
+import { ActivityChart, Tasks } from "./client";
+
+
+const container = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.2
+    }
+  }
+};
+
+const item = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1
+  }
+};
+
+
 
 export default function Home() {
   return (
@@ -13,26 +37,6 @@ export default function Home() {
 
 
 function Taskpane() {
-  const container = {
-    hidden: { opacity: 1, scale: 0 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const item = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1
-    }
-  };
-
   let Task = {
     "Task_1": {
       name: "Meeting with Developers",
@@ -55,16 +59,7 @@ function Taskpane() {
         initial="hidden"
         animate="visible" className="flex flex-col items-center justify-evenly h-[20rem] lg:pl-2 lg:pr-2">
         {Object.keys(Task).map((key) => (
-          <motion.div key={key} variants={item} className="text-black bg-neutral-300 flex lg:w-[26rem] w-64 h-18 items-center justify-between ring-neutral-300 ring-2 p-5">
-            <div>
-              <p className="lg:text-xl text-sm">{Task[key].date}</p>
-              <h2 className="font-semibold lg:text-xl text-sm">{Task[key].name}</h2>
-            </div>
-            <div className="flex justify-end space-x-4">
-              <button className="hover:bg-gray-100 rounded-sm w-10 h-10 ring-neutral-400 ring-2 flex justify-center items-center"><CheckIcon className="size-7 stroke-black" /></button>
-              <button className="hover:bg-gray-100 rounded-sm w-10 h-10 flex justify-center items-center"><EllipsisHorizontalIcon className="size-7 stroke-black" /></button>
-            </div>
-          </motion.div>
+          <Tasks task={Task[key].name} time={Task[key].date} key={key} item={item} variants={item} />
         ))}
       </motion.div>
       <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 100, scale: 1 }} className="flex justify-between lg:w-[26rem] w-64 h-18">
@@ -116,27 +111,6 @@ function Assistant_pane() {
 }
 
 function Notes_pane() {
-
-  const container = {
-    hidden: { opacity: 1, scale: 0 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const item = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1
-    }
-  };
-
   let Notes = {
     "Note_1": {
       name: "Meeting Agenda",
@@ -152,7 +126,6 @@ function Notes_pane() {
     },
   };
   return (
-
     <div className="lg:w-[140%] w-full h-[16rem] border-2 bg-neutral-300 pl-5 pr-5 pt-2 flex flex-col items-center">
       <div className="text-2xl text-black text-start pb-1">Memories and Notes</div>
       <motion.div

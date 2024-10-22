@@ -1,6 +1,6 @@
 import localFont, { Titillium_Web } from "next/font/google";
 import "./globals.css";
-import {SideNav,Nav} from './nav';
+import {SideNav,Nav} from './client';
 
 const tittilium = Titillium_Web({
   variable: "--font-tittilium-web",
