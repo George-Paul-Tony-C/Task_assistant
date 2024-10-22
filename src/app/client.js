@@ -75,12 +75,24 @@ export function SideNav() {
     <>
       <sidenav className={`fixed bg-white transition-all duration-300 ${open ? 'w-56' : 'w-16'}`}>
         <div className={`border-r-2 border-neutral-200 relative flex flex-col justify-start items-center h-[92svh] transition-all duration-300 ${open ? 'w-56' : 'w-16'}`}>
-          <Side_nav_component name={'Dashboard'} route={"/"} open={open}><RectangleGroupIcon className="size-7 stroke-black" /></Side_nav_component>
-          <Side_nav_component name={'Tasks'} route={"/tasks"} open={open}><ClipboardDocumentCheckIcon className="size-7 stroke-black" /></Side_nav_component>
-          <Side_nav_component name={'Notes'} route={"/notes"} open={open}><PencilSquareIcon className="size-7 stroke-black" /></Side_nav_component>
-          <Side_nav_component name={'Calendar'} route={"/calendar"} open={open}><CalendarDaysIcon className="size-7 stroke-black" /></Side_nav_component>
-          <Side_nav_component name={'Remember'} route={"/remember"} open={open}><RectangleStackIcon className="size-7 stroke-black" /></Side_nav_component>
-          <Side_nav_component name={'Workflow'} route={"/workflow"} open={open}><RocketLaunchIcon className="size-7 stroke-black" /></Side_nav_component>
+        <button className="pl-2 pt-6 pb-7 hover:bg-gray-200 h-12 w-full flex justify-evenly items-center text-xl text-black" onClick={() => router.push('/')}>
+            <h2 className={`w-36 text-start transition ease-in-out duration-300 ${open ? 'opacity-100' : 'opacity-50 hidden'}`}>Dashboard</h2> <RectangleGroupIcon className="size-7 stroke-black" />
+          </button>
+          <button className="pl-2 pt-6 pb-7 hover:bg-gray-200 h-12 w-full flex justify-evenly items-center text-xl text-black" onClick={() => router.push('/tasks')}>
+            <h2 className={`w-36 text-start transition ease-in-out duration-300 ${open ? '' : 'hidden'}`}>Tasks</h2> <ClipboardDocumentCheckIcon className="size-7 stroke-black" />
+          </button>
+          <button className="pl-2 pt-6 pb-7 hover:bg-gray-200 h-12 w-full flex justify-evenly items-center text-xl text-black" onClick={() => router.push('/notes')}>
+            <h2 className={`w-36 text-start transition ease-in-out duration-300 ${open ? '' : 'hidden'}`}>Notes</h2> <PencilSquareIcon className="size-7 stroke-black" />
+          </button>
+          <button className="pl-2 pt-6 pb-7 hover:bg-gray-200 h-12 w-full  flex justify-evenly items-center text-xl text-black" onClick={() => router.push('/calendar')}>
+            <h2 className={`w-36 text-start transition ease-in-out duration-300 ${open ? '' : 'hidden'}`}>Calendar</h2> <CalendarDaysIcon className="size-7 stroke-black" />
+          </button>
+          <button className="pl-2 pt-6 pb-7 hover:bg-gray-200 h-12 w-full flex justify-evenly items-center text-xl text-black" onClick={() => router.push('/remember')}>
+            <h2 className={`w-36 text-start transition ease-in-out duration-300 ${open ? 'translate-x-0' : 'hidden -translate-x-28'}`}>Remember</h2> <RectangleStackIcon className="size-7 stroke-black" />
+          </button>
+          <button className="pl-2 pt-6 pb-7 hover:bg-gray-200 h-12 w-full flex justify-evenly items-center text-xl text-black" onClick={() => router.push('/workflow')}>
+            <h2 className={`w-36 text-start transition ease-in-out duration-300 ${open ? '' : 'hidden'}`}>Workflow</h2> <RocketLaunchIcon className="size-7 stroke-black" />
+          </button>
           <button
             className="pl-2 pt-6 pb-7 hover:bg-gray-200 h-12 w-full flex justify-evenly items-center text-xl text-black absolute bottom-12"
             onClick={handleToggle}>
@@ -90,15 +102,6 @@ export function SideNav() {
       </sidenav>
       <div className={`h-screen transition-all duration-200 ${open ? 'w-64' : 'w-16 pl-4'}`}></div>
     </>
-  )
-}
-
-export function Side_nav_component({name,route, open, children}){
-  const router = useRouter();
-  return(
-    <button className="pl-2 pt-6 pb-7 hover:bg-gray-200 h-12 w-full flex justify-evenly items-center text-xl text-black" onClick={() => router.push(route)}>
-      <h2 className={`w-36 text-start transition ease-in-out duration-300 ${open ? 'opacity-100' : 'opacity-50 hidden'}`}>{name}</h2> {children}
-    </button>
   )
 }
 
@@ -133,7 +136,7 @@ export const ActivityChart = () => {
             text: 'Daily Activity (past 7 days)',
           },
           scales: {
-            yAxes: [
+            y: 
               {
                 scaleLabel: {
                   display: true,
@@ -143,15 +146,13 @@ export const ActivityChart = () => {
                   beginAtZero: true,
                 },
               },
-            ],
-            xAxes: [
+            x: 
               {
                 scaleLabel: {
                   display: true,
                   labelString: 'Day of Week',
                 },
               },
-            ],
           },
         }}
       />
@@ -159,7 +160,7 @@ export const ActivityChart = () => {
   );
 };
 
-export function Tasks({task,time, variants}) {
+export function Tasks({task,time,variants}) {
   return (
     <motion.div variants={variants} className="text-black bg-neutral-300 flex lg:w-[26rem] w-64 h-18 items-center justify-between ring-neutral-300 ring-2 p-5">
       <div>
