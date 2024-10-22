@@ -1,52 +1,52 @@
-export default function Memories() {
+export default function Remember() {
 
-  let memories = {
-    "memories_1": {
+  let remember = {
+    "remember_1": {
       name: "Birthday",
       date: "25-09-2024",
       content: "Buy gift for John's birthday"
     },
-    "memories_2": {
+    "remember_2": {
       name: "Appointment",
       date: "22-09-2024",
       content: "Doctor's appointment at 2 PM"
     },
-    "memories_3": {
+    "remember_3": {
       name: "Event",
       date: "25-09-2024",
       content: "Attend concert at 7 PM"
     },
-    "memories_4": {
+    "remember_4": {
       name: "Task",
       date: "25-09-2024",
       content: "Finish project report by end of day"
     },
-    "memories_5": {
+    "remember_5": {
       name: "Phone Call",
       date: "23-09-2024",
       content: "Call mom to catch up"
     },
-    "memories_6": {
+    "remember_6": {
       name: "Meeting",
       date: "23-09-2024",
       content: "Team meeting at 10 AM"
     },
-    "memories_7": {
+    "remember_7": {
       name: "Errand",
       date: "24-09-2024",
       content: "Pick up groceries"
     },
-    "memories_8": {
+    "remember_8": {
       name: "Bill Payment",
       date: "25-09-2024",
       content: "Pay electricity bill"
     },
-    "memories_9": {
+    "remember_9": {
       name: "Travel",
       date: "25-09-2024",
       content: "Book flight tickets for vacation"
     },
-    "memories_10": {
+    "remember_10": {
       name: "Gift",
       date: "25-09-2024",
       content: "Buy anniversary gift for Friend"
@@ -60,11 +60,11 @@ export default function Memories() {
           {/* Looping with the provide format to render each note */}
           {/* This design is a work in progress template */}
           {/* Weird sizing is intenntional*/}
-          {Object.keys(memories).map((key) => (
+          {Object.keys(remember).map((key) => (
             <div key={key} className="text-black flex w-80 min-h-32 items-center justify-center flex-col border-2 border-black p-5">
-              <h2>{memories[key].name}</h2>
-              <p>{memories[key].date}</p>
-              <p>{memories[key].content}</p>
+              <h2>{remember[key].name}</h2>
+              <p>{remember[key].date}</p>
+              <p>{remember[key].content}</p>
             </div>
           ))}
   

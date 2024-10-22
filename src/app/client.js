@@ -79,7 +79,7 @@ export function SideNav() {
           <Side_nav_component name={'Tasks'} route={"/tasks"} open={open}><ClipboardDocumentCheckIcon className="size-7 stroke-black" /></Side_nav_component>
           <Side_nav_component name={'Notes'} route={"/notes"} open={open}><PencilSquareIcon className="size-7 stroke-black" /></Side_nav_component>
           <Side_nav_component name={'Calendar'} route={"/calendar"} open={open}><CalendarDaysIcon className="size-7 stroke-black" /></Side_nav_component>
-          <Side_nav_component name={'Memories'} route={"/memories"} open={open}><RectangleStackIcon className="size-7 stroke-black" /></Side_nav_component>
+          <Side_nav_component name={'Remember'} route={"/remember"} open={open}><RectangleStackIcon className="size-7 stroke-black" /></Side_nav_component>
           <Side_nav_component name={'Workflow'} route={"/workflow"} open={open}><RocketLaunchIcon className="size-7 stroke-black" /></Side_nav_component>
           <button
             className="pl-2 pt-6 pb-7 hover:bg-gray-200 h-12 w-full flex justify-evenly items-center text-xl text-black absolute bottom-12"
