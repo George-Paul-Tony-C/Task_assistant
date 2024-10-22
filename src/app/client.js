@@ -1,6 +1,6 @@
 'use client'
 
-import {CheckIcon,EllipsisHorizontalIcon ,Cog6ToothIcon, CalendarDaysIcon, BellSlashIcon, MapIcon, UserIcon, RocketLaunchIcon, ArrowRightEndOnRectangleIcon, RectangleGroupIcon, RectangleStackIcon, PencilSquareIcon, ClipboardDocumentCheckIcon, BellAlertIcon } from '@heroicons/react/24/outline'
+import { CheckIcon, EllipsisHorizontalIcon, Cog6ToothIcon, CalendarDaysIcon, BellSlashIcon, MapIcon, UserIcon, RocketLaunchIcon, ArrowRightEndOnRectangleIcon, RectangleGroupIcon, RectangleStackIcon, PencilSquareIcon, ClipboardDocumentCheckIcon, BellAlertIcon } from '@heroicons/react/24/outline'
 import React, { useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
@@ -65,7 +65,7 @@ export function Nav() {
 }
 
 export function SideNav() {
-
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const handleToggle = () => {
     setOpen(!open);
@@ -75,7 +75,7 @@ export function SideNav() {
     <>
       <sidenav className={`fixed bg-white transition-all duration-300 ${open ? 'w-56' : 'w-16'}`}>
         <div className={`border-r-2 border-neutral-200 relative flex flex-col justify-start items-center h-[92svh] transition-all duration-300 ${open ? 'w-56' : 'w-16'}`}>
-        <button className="pl-2 pt-6 pb-7 hover:bg-gray-200 h-12 w-full flex justify-evenly items-center text-xl text-black" onClick={() => router.push('/')}>
+          <button className="pl-2 pt-6 pb-7 hover:bg-gray-200 h-12 w-full flex justify-evenly items-center text-xl text-black" onClick={() => router.push('/')}>
             <h2 className={`w-36 text-start transition ease-in-out duration-300 ${open ? 'opacity-100' : 'opacity-50 hidden'}`}>Dashboard</h2> <RectangleGroupIcon className="size-7 stroke-black" />
           </button>
           <button className="pl-2 pt-6 pb-7 hover:bg-gray-200 h-12 w-full flex justify-evenly items-center text-xl text-black" onClick={() => router.push('/tasks')}>
@@ -136,41 +136,26 @@ export const ActivityChart = () => {
             text: 'Daily Activity (past 7 days)',
           },
           scales: {
-            y: 
-              {
-                scaleLabel: {
-                  display: true,
-                  labelString: 'Activity Units',
-                },
-                ticks: {
-                  beginAtZero: true,
-                },
+            y:
+            {
+              scaleLabel: {
+                display: true,
+                labelString: 'Activity Units',
               },
-            x: 
-              {
-                scaleLabel: {
-                  display: true,
-                  labelString: 'Day of Week',
-                },
+              ticks: {
+                beginAtZero: true,
               },
+            },
+            x:
+            {
+              scaleLabel: {
+                display: true,
+                labelString: 'Day of Week',
+              },
+            },
           },
         }}
       />
     </div>
   );
 };
-
-export function Tasks({task,time,variants}) {
-  return (
-    <motion.div variants={variants} className="text-black bg-neutral-300 flex lg:w-[26rem] w-64 h-18 items-center justify-between ring-neutral-300 ring-2 p-5">
-      <div>
-        <p className="lg:text-xl text-sm">{time}</p>
-        <h2 className="font-semibold lg:text-xl text-sm">{task}</h2>
-      </div>
-      <div className="flex justify-end space-x-4">
-        <button onClick={() => { toast("hello") }} className="hover:bg-gray-100 rounded-sm w-10 h-10 ring-neutral-400 ring-2 flex justify-center items-center"><CheckIcon className="size-7 stroke-black" /></button>
-        <button className="hover:bg-gray-100 rounded-sm w-10 h-10 flex justify-center items-center"><EllipsisHorizontalIcon className="size-7 stroke-black" /></button>
-      </div>
-    </motion.div>
-  )
-}

@@ -59,7 +59,16 @@ function Taskpane() {
         initial="hidden"
         animate="visible" className="flex flex-col items-center justify-evenly h-[20rem] lg:pl-2 lg:pr-2">
         {Object.keys(Task).map((key) => (
-          <Tasks task={Task[key].name} time={Task[key].date} key={key} item={item} variants={item} />
+          <motion.div key={key} variants={item} className="text-black bg-neutral-300 flex lg:w-[26rem] w-64 h-18 items-center justify-between ring-neutral-300 ring-2 p-5">
+            <div>
+              <p className="lg:text-xl text-sm">{Task[key].date}</p>
+              <h2 className="font-semibold lg:text-xl text-sm">{Task[key].name}</h2>
+            </div>
+            <div className="flex justify-end space-x-4">
+              <button className="hover:bg-gray-100 rounded-sm w-10 h-10 ring-neutral-400 ring-2 flex justify-center items-center"><CheckIcon className="size-7 stroke-black" /></button>
+              <button className="hover:bg-gray-100 rounded-sm w-10 h-10 flex justify-center items-center"><EllipsisHorizontalIcon className="size-7 stroke-black" /></button>
+            </div>
+          </motion.div>
         ))}
       </motion.div>
       <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 100, scale: 1 }} className="flex justify-between lg:w-[26rem] w-64 h-18">
