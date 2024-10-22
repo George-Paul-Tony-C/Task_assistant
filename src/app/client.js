@@ -1,7 +1,7 @@
 'use client'
 
 import { CheckIcon, EllipsisHorizontalIcon, Cog6ToothIcon, CalendarDaysIcon, BellSlashIcon, MapIcon, UserIcon, RocketLaunchIcon, ArrowRightEndOnRectangleIcon, RectangleGroupIcon, RectangleStackIcon, PencilSquareIcon, ClipboardDocumentCheckIcon, BellAlertIcon } from '@heroicons/react/24/outline'
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 import toast from 'react-hot-toast';
