@@ -35,17 +35,17 @@ export default function Calendar() {
     // Add actual calendar days
     for (let i = firstDay; i < 42; i++) {
       if (dayCount <= daysInMonth) {
-        const isToday =
+        const isday =
           dayCount === today.getDate() &&
           currentMonth === today.getMonth() &&
           currentYear === today.getFullYear();
         calendarDays.push(
           <td
             key={`day-${dayCount}`}
-            className={`border p-4 ${isToday ? 'bg-blue-500 text-white rounded-full' : ''}`}
+            className={`border p-4 ${isday ? 'bg-indigo-100 ring-2 ring-indigo-400 text-black flex' : 'hover:bg-blue-100 hover:ring-1 hover:ring-blue-300 hover:backdrop-blur-2xl hover:shadow-2xl hover:shadow-blue-700'}`}
           >
-            <div className='flex justify-center items-center'>
-            {dayCount}
+            <div className='flex justify-center items-center '>
+              {dayCount}
             </div>
           </td>
         );
@@ -75,7 +75,8 @@ export default function Calendar() {
   }
 
   return (
-    <div className="p-5 lg:w-[30%] w-[95%]  border-r-2 border-gray-200 text-black">
+    <div className='flex justify-evenly w-screen'>
+    <div className="p-5 w-[30%] border-r-2 border-gray-200 text-black">
       <div className="text-3xl text-black mb-4">Calendar Page</div>
       <div className="max-w-md mx-auto p-6 bg-white rounded-lg">
         <div className="flex justify-between items-center mb-4">
@@ -128,5 +129,29 @@ export default function Calendar() {
         </table>
       </div>
     </div>
+    <div className='p-5 w-[70%]'>
+      <div className='flex justify-between p-2 items-center'>
+        <h1 className='text-xl text-black'>Schedule for date: {today.getDate()}/{currentMonth}/{currentYear}</h1>
+        <h1 className='text-xl text-black'>View: Single Day</h1>
+      </div>
+          <HoursGrid/>
+
+    </div>
+    </div>
   );
 }
+
+function HoursGrid() {
+  const hours = Array(24).fill('').map((_, i) => ({ hour: String(i % 12 || 12).padStart(2, '0'), ampm: (i >= 12 ? 'PM' : 'AM') }));
+
+  return (
+    <div className="grid grid-cols-2 gap-1 h-screen text-black overflow-y-auto">
+      {hours.map((hour) => (
+        <div key={hour.hour} className="bg-blue-100 p-8 w-full text-center">{hour.hour}:00 {hour.ampm}</div>
+      ))}
+      <div className='h-32'></div>
+    </div>
+  );
+}
+
+
