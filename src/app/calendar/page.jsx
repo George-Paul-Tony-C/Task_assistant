@@ -75,7 +75,7 @@ export default function Calendar() {
   }
 
   return (
-    <div className="p-5 w-[30%] border-r-2 border-gray-200 text-black">
+    <div className="p-5 lg:w-[30%] w-[95%]  border-r-2 border-gray-200 text-black">
       <div className="text-3xl text-black mb-4">Calendar Page</div>
       <div className="max-w-md mx-auto p-6 bg-white rounded-lg">
         <div className="flex justify-between items-center mb-4">
