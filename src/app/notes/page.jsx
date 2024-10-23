@@ -58,14 +58,14 @@ export default function Notes() {
   
   
     return (
-      <div className="w-screen min-h-screen p-12">
-        <div className="grid grid-cols-3 grid-flow-dense gap-8 place-items-center items-start">
+      <div className="w-screen min-h-screen p-12 overflow-auto">
+        <div className="grid grid-cols-auto grid-flow-row gap-8 place-items-center items-start">
   
           {/* Looping with the provide format to render each note */}
           {/* This design is a work in progress template */}
           {/* Weird sizing is intenntional*/}
           {Object.keys(notes).map((key) => (
-            <div key={key} className="text-black flex w-80 min-h-32 items-center justify-center flex-col border-2 border-black p-5">
+            <div key={key} className="text-black flex w-max min-h-32 items-center justify-center flex-col border-2 border-black p-5">
               <h2>{notes[key].name}</h2>
               <p>{notes[key].date}</p>
               <p>{notes[key].content}</p>

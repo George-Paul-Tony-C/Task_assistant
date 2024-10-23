@@ -29,7 +29,7 @@ export default function Calendar() {
 
     // Add empty cells before the first day of the month
     for (let i = 0; i < firstDay; i++) {
-      calendarDays.push(<td key={`empty-${i}`} className="border p-4 text-gray-400"></td>);
+      calendarDays.push(<td key={`empty-${i}`} className="p-4 text-gray-400"></td>);
     }
 
     // Add actual calendar days
@@ -42,7 +42,7 @@ export default function Calendar() {
         calendarDays.push(
           <td
             key={`day-${dayCount}`}
-            className={`border p-4 ${isday ? 'bg-indigo-100 ring-2 ring-indigo-400 text-black flex' : 'hover:bg-blue-100 hover:ring-1 hover:ring-blue-300 hover:backdrop-blur-2xl hover:shadow-2xl hover:shadow-blue-700'}`}
+            className={`p-4 ${isday ? 'bg-indigo-100 ring-2 ring-indigo-400 text-black flex backdrop-blur-2xl shadow-2xl shadow-indigo-700' : 'hover:bg-blue-100 hover:backdrop-blur-2xl hover:shadow-2xl hover:shadow-blue-700'}`}
           >
             <div className='flex justify-center items-center '>
               {dayCount}
