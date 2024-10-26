@@ -1,9 +1,14 @@
-> [!NOTE]  
+> [!NOTE]
 > This Project is a work in progress and is not suitable to be used at this moment.<br>
 > Star the repository for progress and preview release updates.
 
-# Task Assistant 
-A Personal Task Assistant web application designed to improve productivity with automated Scheduling, Organization and Notes with support for optional AI assistance.
+
+#### <a href="https://docs.mahinkumar.com/Task_assistant/guide">Guides</a> | <a href="https://docs.mahinkumar.com/Task_assistant/docs">Docs</a> 
+# Task Assistant
+
+
+A Personal Task Assistant web application designed to improve productivity with automated Scheduling, Organization and Notes with support for optional AI assistance.<br>
+
 
 ## Getting Started
 ### Running Development Server
@@ -45,6 +50,7 @@ bun build
 * Operating System: Windows, macOS, or Linux
 * Node.js version: 16.x or higher
 * Package Manager: npm, yarn, pnpm, or bun
+
 
 ## Architecture
 <img width="1472" alt="Archit" src="https://github.com/user-attachments/assets/40adaf6d-4601-4534-bc51-b0a100459b5f">
