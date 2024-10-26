@@ -142,12 +142,25 @@ export default function Calendar() {
 }
 
 function HoursGrid() {
-  const hours = Array(24).fill('').map((_, i) => ({ hour: String(i % 12 || 12).padStart(2, '0'), ampm: (i >= 12 ? 'PM' : 'AM') }));
+  const hours = Array(24).fill('').map((_, i) => ({ 
+    hour: String(i % 12 || 12).padStart(2, '0'), 
+    ampm: (i >= 12 ? 'PM' : 'AM'), 
+    tasks: () => {
+      if (i<6) return 'Sleep Time';
+      else if (i % 7 === 0) return 'Task 1';
+      else if (i % 3 === 0) return 'Task 2';
+      else if (i % 5 === 0) return 'Task 3';
+      else return '+';
+    } 
+  }));
 
   return (
     <div className="grid grid-cols-2 gap-1 h-screen text-black overflow-y-auto">
-      {hours.map((hour) => (
-        <div key={hour.hour} className="bg-blue-100 p-8 w-full text-center">{hour.hour}:00 {hour.ampm}</div>
+      {hours.map((hour, i) => (
+        <div key={i} className="bg-blue-100 p-8 w-full text-center">
+          <p>{hour.hour}:00 {hour.ampm}</p>
+          <p className="text-lg">{hour.tasks()}</p>
+        </div>
       ))}
       <div className='h-32'></div>
     </div>
