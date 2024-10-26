@@ -13,7 +13,19 @@ A Personal Task Assistant web application designed to improve productivity with 
 5. Completely Private on device Data Management. 
 6. Long Notes and Memories to keep task with their related information.
 7. Integration with third party calendars (Needs API)
-   
+
+## Requirements
+* CPU: 1.5 GHz or faster
+* RAM: 4 GB or more
+* Storage: 512 MB or more (dependent on data storage needs)
+* Operating System: Windows, macOS, or Linux
+* Node.js version: 16.x or higher
+* Package Manager: npm, yarn, pnpm, or bun
+
+## Architecture
+<img width="1472" alt="Archit" src="https://github.com/user-attachments/assets/40adaf6d-4601-4534-bc51-b0a100459b5f">
+
+
 ## Getting Started
 ### Running Development Server
 ```bash
