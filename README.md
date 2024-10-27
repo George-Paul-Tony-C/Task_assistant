@@ -2,13 +2,13 @@
 > This Project is a work in progress and is not suitable to be used at this moment.<br>
 > Star the repository for progress and preview release updates.
 
+<hr>
 
-#### <a href="https://docs.mahinkumar.com/Task_assistant/guide">Guides</a> | <a href="https://docs.mahinkumar.com/Task_assistant/docs">Docs</a> 
 # Task Assistant
-
-
+#### <a href="https://docs.mahinkumar.com/Task_assistant/guide">Guides</a> | <a href="https://docs.mahinkumar.com/Task_assistant/docs">Docs</a> | <a href="https://preview1.mahinkumar.com">Preview</a>
 A Personal Task Assistant web application designed to improve productivity with automated Scheduling, Organization and Notes with support for optional AI assistance.<br>
 
+<hr/>
 
 ## Getting Started
 ### Running Development Server
@@ -33,6 +33,7 @@ pnpm build
 # or
 bun build
 ```
+<hr>
 
 ## Features
 1. Automated Task scheduling with a context aware Scheduling Algorithm.
