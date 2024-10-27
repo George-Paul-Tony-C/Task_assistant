@@ -1,9 +1,25 @@
 ---
 title: Documentation
+layout: home
 lastUpdated: true
+hero:
+  name: "Task Assistant"
+  tagline: "Documentation"
+features:
+  - title: Building From Source
+    link: /docs/buildfromsource
+  - title: Viewing this Docs offline
+    link: /docs/usingdocsoffline
+  - title: Overview
+    link: /docs/overview
+  - title: API Definitions
+    link: /docs/api
+  - title: Configurations
+    link: /docs/configuration
+  - title: Testing
+    link: /docs/testing
+  - title: Contributing
+    link: /docs/contributing
+  - title: Discussions
+    link: /docs/discussions
 ---
-
-# Documentation  <Badge type="tip" text="Work in progress" />
-
-Documentation for Task assistant is currently being worked on. <br>
-Please check back later
