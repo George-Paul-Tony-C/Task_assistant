@@ -53,13 +53,13 @@ function Taskpane() {
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center p-4 pt-2">
       <motion.div
         variants={container}
         initial="hidden"
-        animate="visible" className="flex flex-col items-center justify-evenly h-[20rem] lg:pl-2 lg:pr-2">
+        animate="visible" className="flex flex-col items-center justify-evenly h-[18rem] lg:pl-2 lg:pr-2">
         {Object.keys(Task).map((key) => (
-          <motion.div key={key} variants={item} className="text-black bg-neutral-300 flex lg:w-[26rem] w-64 h-18 items-center justify-between ring-neutral-300 ring-2 p-5">
+          <motion.div key={key} variants={item} className="text-black bg-neutral-300 flex lg:w-[26rem] w-64 h-20 items-center justify-between ring-neutral-300 ring-2 p-4">
             <div>
               <p className="lg:text-xl text-sm">{Task[key].date}</p>
               <h2 className="font-semibold lg:text-xl text-sm">{Task[key].name}</h2>
@@ -86,7 +86,7 @@ function Taskpane() {
 function Overview_pane() {
   return (
     <>
-      <div className="lg:w-[45%] w-full h-[25rem] border-2 bg-neutral-200 lg:pl-5 pl-28  pr-5 pt-2 flex flex-col items-center">
+      <div className="lg:w-[45%] w-full h-[24rem] border-2 bg-neutral-200 lg:pl-5 pl-28 pr-5 pt-2 flex flex-col justify-start items-center">
         <div className="text-2xl text-black w-[26rem] text-start">Today's overview</div>
         <Taskpane />
       </div>
@@ -97,7 +97,7 @@ function Overview_pane() {
 function Assistant_pane() {
   return (
     <>
-      <div className="w-full h-[25rem] border-2 flex flex-col justify-evenly items-center bg-neutral-100">
+      <div className="w-full h-[24rem] border-2 flex flex-col justify-evenly items-center bg-neutral-100">
         <div className="flex justify-evenly w-full">
           <div className="w-64 h-64 bg-blue-300 flex justify-center items-center rounded-full">
             <div className="w-48 h-48 bg-blue-200 rounded-full flex justify-center items-center">
@@ -135,15 +135,15 @@ function Notes_pane() {
     },
   };
   return (
-    <div className="lg:w-[140%] w-full h-[16rem] border-2 bg-neutral-300 pl-5 pr-5 pt-2 flex flex-col items-center">
+    <div className="lg:w-[140%] w-full h-[18rem] border-2 bg-neutral-300 pl-5 pr-5 pt-2 flex flex-col items-center">
       <div className="text-2xl text-black text-start pb-1">Memories and Notes</div>
       <motion.div
         variants={container}
         initial="hidden"
         animate="visible" className="flex justify-evenly w-full">
         {Object.keys(Notes).map((key) => (
-          <motion.div key={key} variants={item} className="w-64 h-48 bg-neutral-200 hover:bg-neutral-200/70 flex flex-col justify-start space-y-2 items-center p-4 border-2 border-neutral-400">
-            <div className="flex justify-evenly items-center">
+          <motion.div key={key} variants={item} className="w-56 h-48 bg-neutral-200 hover:bg-neutral-200/70 flex flex-col justify-start space-y-2 items-center p-4 border-2 border-neutral-400">
+            <div className="flex justify-start items-center w-48">
               <div className="w-48 pl-4">
                 <h1 className="text-black text-xl font-semibold">{Notes[key].name}</h1>
                 <h1 className="text-black text-xl">Notes</h1>
@@ -152,7 +152,7 @@ function Notes_pane() {
                 <PaperClipIcon className="size-7 stroke-black" />
               </div>
             </div>
-            <div className="text-black w-48 pl-0.5">{Notes[key].desc}</div>
+            <div className="text-black w-42 pl-4 flex justify-center">{Notes[key].desc}</div>
           </motion.div>
         ))}
       </motion.div>
@@ -163,7 +163,7 @@ function Notes_pane() {
 function Brief_pane() {
   return (
     <>
-      <div className="w-full h-[16rem] border-2 flex justify-center items-center flex-col">
+      <div className="w-full h-[18rem] border-2 flex justify-center items-center flex-col">
         <ActivityChart />
       </div>
     </>
