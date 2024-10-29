@@ -162,22 +162,34 @@ export const ActivityChart = () => {
 };
 
 
-const Commander = ({ onEnter }) => {
+const Commander = ({ onEnter, onSearch }) => {
   const [showPrompt, setShowPrompt] = useState(false);
   const [command, setCommand] = useState('');
+  const [mode, setmode] = useState('Enter');
 
   const handleKeyPress = (event) => {
     if ((event.metaKey || event.ctrlKey) && event.key === '/') {
       setShowPrompt(true);
     } else if ([13, 'Escape'].includes(event.keyCode)) {
-      if (event.metaKey || event.ctrlKey || event.key === 'Escape') return;
+      if (event.metaKey || event.ctrlKey) return;
       setShowPrompt(false);
+    }
+  };
+
+  const handleInput = (input) => {
+    setCommand(input);
+    if (input.startsWith('>')) {
+      setmode('Execute')
+    } else if (input.startsWith('?')) {
+      setmode('Ask')
+    } else if (input.startsWith('/')) {
+      setmode('Go To')
     }
   };
 
   useEffect(() => {
     document.addEventListener('keydown', handleKeyPress);
-  
+
     return () => {
       document.removeEventListener('keydown', handleKeyPress);
     };
@@ -188,36 +200,35 @@ const Commander = ({ onEnter }) => {
     visible: { opacity: 1, y: 0 },
   };
 
-
   return (
     <div>
       {showPrompt ? (
-        <motion.div initial={{ opacity: 0}}
-        animate={{ opacity: 1}}
-        transition={{ duration: 0.3 }} className="fixed z-10 inset-y-0 left-0 w-full backdrop-blur-sm bg-black/40 text-gray-800 flex justify-center pt-32">
-          <motion.input
-          initial={{ opacity: 0, translateY: -96}}
-          animate={{ opacity: 1, translateY: 0}}
-          transition={{ duration: 0.5 }}
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          transition={{ duration: 0.3 }}
+          className="fixed z-10 inset-y-0 left-0 w-full backdrop-blur-sm bg-black/40 text-gray-800 flex 
+justify-center pt-32"
+        >
+          <input
             type="text"
             value={command}
-            onChange={(event) => setCommand(event.target.value)}
+            onChange={(event) => handleInput(event.target.value)}
             autoFocus
             placeholder=' > Enter Command or / perform a search'
-            className="w-[50%] h-16 px-4 py-2 border-b border-gray-200 focus:outline-none focus:border-blue-500 "/>
-          <motion.button
-          initial={{ opacity: 0, translateY: -96}}
-          animate={{ opacity: 1, translateY: 0}}
-          transition={{ duration: 0.5 }}
+            className="w-[50%] h-16 px-4 py-2 border-b border-gray-200 focus:outline-none focus:border-blue-500 
+"
+          />
+          <button
             onClick={() => {
               onEnter(command);
               setShowPrompt(false);
               setCommand('');
             }}
-            className="bg-blue-500 h-16 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            className="bg-blue-500 h-16 w-24 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           >
-            Enter
-          </motion.button>
+            {mode}
+          </button>
         </motion.div>
       ) : null}
     </div>
