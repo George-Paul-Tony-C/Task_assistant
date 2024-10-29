@@ -4,7 +4,7 @@ layout: home
 lastUpdated: true
 hero:
   name: "Task Assistant"
-  tagline: "Documentation"
+  tagline: "Developer Documentation"
 features:
   - title: Building From Source
     link: /docs/buildfromsource
