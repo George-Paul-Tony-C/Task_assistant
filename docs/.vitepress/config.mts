@@ -9,6 +9,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: 'https://docs.mahinkumar.com/' },
+      { text: 'Preview', link: 'https://preview1.mahinkumar.com/'},
       { text: 'Docs', link: '/docs' },
       { text: 'Guides', link: '/guide' }
     ],
