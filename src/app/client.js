@@ -166,6 +166,7 @@ const Commander = ({ onEnter, onSearch }) => {
   const [showPrompt, setShowPrompt] = useState(false);
   const [command, setCommand] = useState('');
   const [mode, setmode] = useState('Enter');
+  const [cmdcolor, setcmdcolor] = useState('text-black')
 
   const handleKeyPress = (event) => {
     if ((event.metaKey || event.ctrlKey) && event.key === '/') {
@@ -183,7 +184,14 @@ const Commander = ({ onEnter, onSearch }) => {
     } else if (input.startsWith('?')) {
       setmode('Ask')
     } else if (input.startsWith('/')) {
+      if (input.includes(' ')){
+        setcmdcolor('text-red-500');
+      }else{
+        setcmdcolor('text-black')
+      }
       setmode('Go To')
+    }else{
+      setmode('Search')
     }
   };
 
@@ -218,8 +226,7 @@ justify-center pt-32"
             onChange={(event) => handleInput(event.target.value)}
             autoFocus
             placeholder=' > Enter Command or / perform a search'
-            className="w-[50%] h-16 px-4 py-2 border-b border-gray-200 focus:outline-none focus:border-blue-500 
-"
+            className={` w-[50%] h-16 px-4 py-2 border-b border-gray-200 focus:outline-none focus:border-blue-500 ${cmdcolor} `}
           />
           <motion.button
             initial={{ opacity: 0, translateY: -74 }}
