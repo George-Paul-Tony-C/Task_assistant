@@ -1,11 +1,11 @@
 'use client'
 
 import { CheckIcon, EllipsisHorizontalIcon, Cog6ToothIcon, CalendarDaysIcon, BellSlashIcon, MapIcon, UserIcon, RocketLaunchIcon, ArrowRightEndOnRectangleIcon, RectangleGroupIcon, RectangleStackIcon, PencilSquareIcon, ClipboardDocumentCheckIcon, BellAlertIcon } from '@heroicons/react/24/outline'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 import toast from 'react-hot-toast';
-import { motion } from "framer-motion"
+import { animate, motion } from "framer-motion"
 import { useRouter } from 'next/navigation'
 import moment from 'moment';
 import { Toaster } from 'react-hot-toast';
@@ -38,6 +38,7 @@ export function Nav() {
   return (
     <>
       <Toaster position="bottom-right" reverseOrder={false} />
+      <Commander/>
       <nav className="bg-white fixed w-screen h-16 flex border-b-2 border-neutral-200">
         <div className="lg:w-[15%] w-[70%] flex justify-start pl-5 items-center text-2xl font-semibold text-black">
           Task Assistant
@@ -156,6 +157,69 @@ export const ActivityChart = () => {
           },
         }}
       />
+    </div>
+  );
+};
+
+
+const Commander = ({ onEnter }) => {
+  const [showPrompt, setShowPrompt] = useState(false);
+  const [command, setCommand] = useState('');
+
+  const handleKeyPress = (event) => {
+    if ((event.metaKey || event.ctrlKey) && event.key === '/') {
+      setShowPrompt(true);
+    } else if ([13, 'Escape'].includes(event.keyCode)) {
+      if (event.metaKey || event.ctrlKey || event.key === 'Escape') return;
+      setShowPrompt(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyPress);
+  
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress);
+    };
+  }, []);
+
+  const variants = {
+    hidden: { opacity: 0, y: -100 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+
+  return (
+    <div>
+      {showPrompt ? (
+        <motion.div initial={{ opacity: 0}}
+        animate={{ opacity: 1}}
+        transition={{ duration: 0.3 }} className="fixed z-10 inset-y-0 left-0 w-full backdrop-blur-sm bg-black/40 text-gray-800 flex justify-center pt-32">
+          <motion.input
+          initial={{ opacity: 0, translateY: -96}}
+          animate={{ opacity: 1, translateY: 0}}
+          transition={{ duration: 0.5 }}
+            type="text"
+            value={command}
+            onChange={(event) => setCommand(event.target.value)}
+            autoFocus
+            placeholder=' > Enter Command or / perform a search'
+            className="w-[50%] h-16 px-4 py-2 border-b border-gray-200 focus:outline-none focus:border-blue-500 "/>
+          <motion.button
+          initial={{ opacity: 0, translateY: -96}}
+          animate={{ opacity: 1, translateY: 0}}
+          transition={{ duration: 0.5 }}
+            onClick={() => {
+              onEnter(command);
+              setShowPrompt(false);
+              setCommand('');
+            }}
+            className="bg-blue-500 h-16 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Enter
+          </motion.button>
+        </motion.div>
+      ) : null}
     </div>
   );
 };
