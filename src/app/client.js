@@ -164,6 +164,7 @@ export const ActivityChart = () => {
 
 const Commander = ({ onEnter, onSearch }) => {
   const [showPrompt, setShowPrompt] = useState(false);
+  const [feedback, setfeedback] = useState('');
   const [command, setCommand] = useState('');
   const [mode, setmode] = useState('Enter');
   const [cmdcolor, setcmdcolor] = useState('text-black')
@@ -177,6 +178,7 @@ const Commander = ({ onEnter, onSearch }) => {
     }
   };
 
+
   const handleInput = (input) => {
     setCommand(input);
     if (input.startsWith('>')) {
@@ -184,13 +186,15 @@ const Commander = ({ onEnter, onSearch }) => {
     } else if (input.startsWith('?')) {
       setmode('Ask')
     } else if (input.startsWith('/')) {
-      if (input.includes(' ')){
+      if (input.includes(' ')) {
         setcmdcolor('text-red-500');
-      }else{
+        setfeedback('// Goto cannot contain spaces')
+      } else {
         setcmdcolor('text-black')
+        setfeedback('')
       }
       setmode('Go To')
-    }else{
+    } else {
       setmode('Search')
     }
   };
@@ -203,10 +207,6 @@ const Commander = ({ onEnter, onSearch }) => {
     };
   }, []);
 
-  const variants = {
-    hidden: { opacity: 0, y: -100 },
-    visible: { opacity: 1, y: 0 },
-  };
 
   return (
     <div>
@@ -217,6 +217,7 @@ const Commander = ({ onEnter, onSearch }) => {
           className="fixed z-10 inset-y-0 left-0 w-full backdrop-blur-sm bg-black/40 text-gray-800 flex 
 justify-center pt-32"
         >
+          <div className='relative w-[50%] items-center'>
           <motion.input
             initial={{ opacity: 0, translateY: -74 }}
             animate={{ opacity: 1, translateY: 0 }}
@@ -226,8 +227,11 @@ justify-center pt-32"
             onChange={(event) => handleInput(event.target.value)}
             autoFocus
             placeholder=' > Enter Command or / perform a search'
-            className={` w-[50%] h-16 px-4 py-2 border-b border-gray-200 focus:outline-none focus:border-blue-500 ${cmdcolor} `}
-          />
+            className={`w-full h-16 px-4 py-2 border-b border-gray-200 focus:outline-none focus:border-blue-500 absolute left-0 ${cmdcolor} `}
+          ></motion.input>
+          <div className='absolute right-5 p-4 text-right text-red-700 flex items-center text-lg'>{feedback}</div>
+          </div>
+          
           <motion.button
             initial={{ opacity: 0, translateY: -74 }}
             animate={{ opacity: 1, translateY: 0 }}
