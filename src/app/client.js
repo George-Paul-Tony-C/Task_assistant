@@ -38,7 +38,7 @@ export function Nav() {
   return (
     <>
       <Toaster position="bottom-right" reverseOrder={false} />
-      <Commander/>
+      <Commander />
       <nav className="bg-white fixed w-screen h-16 flex border-b-2 border-neutral-200">
         <div className="lg:w-[15%] w-[70%] flex justify-start pl-5 items-center text-2xl font-semibold text-black">
           Task Assistant
@@ -204,13 +204,15 @@ const Commander = ({ onEnter, onSearch }) => {
     <div>
       {showPrompt ? (
         <motion.div
-          initial="hidden"
-          animate="visible"
-          transition={{ duration: 0.3 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
           className="fixed z-10 inset-y-0 left-0 w-full backdrop-blur-sm bg-black/40 text-gray-800 flex 
 justify-center pt-32"
         >
-          <input
+          <motion.input
+            initial={{ opacity: 0, translateY: -74 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            transition={{ duration: 0.2 }}
             type="text"
             value={command}
             onChange={(event) => handleInput(event.target.value)}
@@ -219,7 +221,10 @@ justify-center pt-32"
             className="w-[50%] h-16 px-4 py-2 border-b border-gray-200 focus:outline-none focus:border-blue-500 
 "
           />
-          <button
+          <motion.button
+            initial={{ opacity: 0, translateY: -74 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            transition={{ duration: 0.2 }}
             onClick={() => {
               onEnter(command);
               setShowPrompt(false);
@@ -228,9 +233,10 @@ justify-center pt-32"
             className="bg-blue-500 h-16 w-24 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           >
             {mode}
-          </button>
+          </motion.button>
         </motion.div>
       ) : null}
     </div>
+
   );
 };
