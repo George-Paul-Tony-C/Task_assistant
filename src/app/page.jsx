@@ -2,8 +2,7 @@
 import { PlusIcon, ArrowPathIcon, CheckIcon, EllipsisHorizontalIcon, PaperClipIcon } from "@heroicons/react/24/outline";
 import { PlayIcon } from "@heroicons/react/24/solid";
 import * as motion from "framer-motion/client"
-import { ActivityChart, Tasks } from "./client";
-
+import { ActivityChart } from "./components/dashboard/graphs";
 
 const container = {
   hidden: { opacity: 1, scale: 0 },
