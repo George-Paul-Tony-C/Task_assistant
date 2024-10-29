@@ -1,5 +1,5 @@
-import { Calendar } from '../components/calendar/calendar';
-import { HoursOverview } from '../components/calendar/taskOverview';
+import { Calendar } from '@/components/calendar/calendar';
+import { HoursOverview } from '@/components/calendar/taskOverview';
 
 
 export default function calendar_page(){

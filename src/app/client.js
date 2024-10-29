@@ -5,9 +5,9 @@ import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation'
 import moment from 'moment';
-import { Commander } from './components/global/commander';
+import { Commander } from '@/components/global/commander';
 import { Toaster } from 'react-hot-toast';
-import { ActivityChart } from './components/dashboard/graphs';
+
 
 export function Nav() {
   const router = useRouter();

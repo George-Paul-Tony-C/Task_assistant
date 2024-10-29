@@ -1,0 +1,52 @@
+{
+    "remember_1": {
+      "name": "Birthday",
+      "date": "25-09-2024",
+      "content": "Buy gift for John's birthday"
+    },
+    "remember_2": {
+      "name": "Appointment",
+      "date": "22-09-2024",
+      "content": "Doctor's appointment at 2 PM"
+    },
+    "remember_3": {
+      "name": "Event",
+      "date": "25-09-2024",
+      "content": "Attend concert at 7 PM"
+    },
+    "remember_4": {
+      "name": "Task",
+      "date": "25-09-2024",
+      "content": "Finish project report by end of day"
+    },
+    "remember_5": {
+      "name": "Phone Call",
+      "date": "23-09-2024",
+      "content": "Call mom to catch up"
+    },
+    "remember_6": {
+      "name": "Meeting",
+      "date": "23-09-2024",
+      "content": "Team meeting at 10 AM"
+    },
+    "remember_7": {
+      "name": "Errand",
+      "date": "24-09-2024",
+      "content": "Pick up groceries"
+    },
+    "remember_8": {
+      "name": "Bill Payment",
+      "date": "25-09-2024",
+      "content": "Pay electricity bill"
+    },
+    "remember_9": {
+      "name": "Travel",
+      "date": "25-09-2024",
+      "content": "Book flight tickets for vacation"
+    },
+    "remember_10": {
+      "name": "Gift",
+      "date": "25-09-2024",
+      "content": "Buy anniversary gift for Friend"
+    }
+  }

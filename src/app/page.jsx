@@ -2,7 +2,11 @@
 import { PlusIcon, ArrowPathIcon, CheckIcon, EllipsisHorizontalIcon, PaperClipIcon } from "@heroicons/react/24/outline";
 import { PlayIcon } from "@heroicons/react/24/solid";
 import * as motion from "framer-motion/client"
-import { ActivityChart } from "./components/dashboard/graphs";
+import { ActivityChart } from "@/components/dashboard/graphs";
+
+
+// Replace by Fetch after Designing Backend
+import Task from "@/MockData/mocktasks.json"
 
 const container = {
   hidden: { opacity: 1, scale: 0 },
@@ -36,20 +40,6 @@ export default function Home() {
 
 
 function Taskpane() {
-  let Task = {
-    "Task_1": {
-      name: "Meeting with Developers",
-      date: "11:00 AM - 12:00 PM",
-    },
-    "Task_2": {
-      name: "Lunch at the Emporium",
-      date: "12:00 PM - 01:00 PM",
-    },
-    "Task_3": {
-      name: "Exam Preparation - Phase 1",
-      date: "01:00 PM - 02:30 PM",
-    },
-  };
 
   return (
     <div className="flex flex-col items-center p-4 pt-2">

@@ -1,0 +1,14 @@
+{
+    "Task_1": {
+      "name": "Meeting with Developers",
+      "date": "11:00 AM - 12:00 PM"
+    },
+    "Task_2": {
+      "name": "Lunch at the Emporium",
+      "date": "12:00 PM - 01:00 PM"
+    },
+    "Task_3": {
+      "name": "Exam Preparation - Phase 1",
+      "date": "01:00 PM - 02:30 PM"
+    }
+}
