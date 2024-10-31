@@ -11,15 +11,15 @@ export const ActivityChart = () => {
         {
           label: 'Tasks Per day',
           data: [1, 4, 2, 3, 1, 0, 3],
-          backgroundColor: 'rgba(0, 155, 0, 1)',
-          borderColor: 'rgba(0, 155, 0, 1)',
+          backgroundColor: 'rgba(55, 50, 155, 1)',
+          borderColor: 'rgba(55, 50, 155, 1)',
           borderWidth: 2,
         },
         {
           label: 'Productivity Hours',
           data: [2, 3, 3, 4, 2, 1, 5],
-          backgroundColor: 'rgba(155, 0, 0, 1)',
-          borderColor: 'rgba(155, 0, 0, 1)',
+          backgroundColor: 'rgba(15, 155, 155, 1)',
+          borderColor: 'rgba(15, 155, 155, 1)',
           borderWidth: 2,
         }
       ],
