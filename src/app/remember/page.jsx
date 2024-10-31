@@ -26,7 +26,7 @@ export default function Remember() {
             >
               <div className="flex justify-between items-center mb-2">
                 <h2 className="text-gray-800 font-bold">{remember[key].name}</h2>
-                <p className="text-gray-400 text-xs">Added on {remember[key].date}</p>
+                <p className="text-gray-400 text-xs">Disappears by {remember[key].date}</p>
               </div>
               <p className="max-w-sm text-gray-600 text-md mb-4">
                 {remember[key].content}

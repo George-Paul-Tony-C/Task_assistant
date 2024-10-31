@@ -40,15 +40,14 @@ export default function Home() {
 
 
 function Taskpane() {
-
   return (
-    <div className="flex flex-col items-center p-4 pt-2">
+    <div className="flex flex-col items-center p-4 pt-2 bg-white">
       <motion.div
         variants={container}
         initial="hidden"
         animate="visible" className="flex flex-col items-center justify-evenly h-[18rem] lg:pl-2 lg:pr-2">
         {Object.keys(Task).map((key) => (
-          <motion.div key={key} variants={item} className="text-black bg-neutral-300 flex lg:w-[26rem] w-64 h-20 items-center justify-between ring-neutral-300 ring-2 p-4">
+          <motion.div key={key} variants={item} className="text-black rounded-sm bg-gradient-to-br from-neutral-50 via-neutral-50 to-blue-400 flex lg:w-[26rem] w-64 h-20 items-center justify-between ring-neutral-300 ring-2 p-4">
             <div>
               <p className="lg:text-xl text-sm">{Task[key].date}</p>
               <h2 className="font-semibold lg:text-xl text-sm">{Task[key].name}</h2>
@@ -61,10 +60,10 @@ function Taskpane() {
         ))}
       </motion.div>
       <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 100, scale: 1 }} className="flex justify-between lg:w-[26rem] w-64 h-18">
-        <button className="hover:bg-gray-100 rounded-sm w-[48%] bg-neutral-300 h-8 ring-neutral-300 ring-2 flex justify-evenly items-center">
+        <button className="bg-gray-100 hover:bg-blue-200 transition-all duration-100 rounded-sm w-[48%] h-8 ring-neutral-300 ring-2 flex justify-evenly items-center">
           <ArrowPathIcon className="size-6 stroke-black" />
         </button>
-        <button className="hover:bg-gray-100 rounded-sm w-[48%] bg-neutral-300 h-8 ring-neutral-300 ring-2 flex justify-evenly items-center">
+        <button className="bg-gray-100 hover:bg-blue-200 transition-all duration-100 rounded-sm w-[48%]  h-8 ring-neutral-300 ring-2 flex justify-evenly items-center">
           <PlusIcon className="size-6 stroke-black" />
         </button>
       </motion.div>
@@ -75,7 +74,7 @@ function Taskpane() {
 function Overview_pane() {
   return (
     <>
-      <div className="lg:w-[45%] w-full h-[24rem] border-2 bg-neutral-200 lg:pl-5 pl-28 pr-5 pt-2 flex flex-col justify-start items-center">
+      <div className="lg:w-[45%] w-full h-[45%] border-2 bg-white lg:pl-5 pl-28 pr-5 pt-2 flex flex-col justify-start items-center">
         <div className="text-2xl text-black w-[26rem] text-start">Today's overview</div>
         <Taskpane />
       </div>
@@ -86,8 +85,8 @@ function Overview_pane() {
 function Assistant_pane() {
   return (
     <>
-      <div className="w-full h-[24rem] border-2 flex flex-col justify-evenly items-center bg-neutral-100">
-        <div className="flex justify-evenly w-full">
+      <div className="w-full p-5 border-2 flex flex-col justify-evenly items-center bg-neutral-100">
+        <div className="flex justify-evenly w-full h-full">
           <div className="w-64 h-64 bg-blue-300 flex justify-center items-center rounded-full">
             <div className="w-48 h-48 bg-blue-200 rounded-full flex justify-center items-center">
               <PlayIcon className="size-24 fill-black" />
@@ -124,14 +123,14 @@ function Notes_pane() {
     },
   };
   return (
-    <div className="lg:w-[140%] w-full h-[18rem] border-2 bg-neutral-300 pl-5 pr-5 pt-2 flex flex-col items-center">
+    <div className="w-full h-screen border-2 bg-white pl-5 pr-5 pt-1 flex flex-col items-center">
       <div className="text-2xl text-black text-start pb-1">Memories and Notes</div>
       <motion.div
         variants={container}
         initial="hidden"
-        animate="visible" className="flex justify-evenly w-full">
+        animate="visible" className="flex justify-evenly w-full pt-3">
         {Object.keys(Notes).map((key) => (
-          <motion.div key={key} variants={item} className="w-56 h-48 bg-neutral-200 hover:bg-neutral-200/70 flex flex-col justify-start space-y-2 items-center p-4 border-2 border-neutral-400">
+          <motion.div key={key} variants={item} className="w-56 h-48 bg-gradient-to-br from-cyan-50 via-sky-200 to-sky-300 hover:shadow-2xl hover:shadow-sky-600 transition-all duration-300 flex flex-col justify-start space-y-2 items-center p-4 border-2 border-neutral-400">
             <div className="flex justify-start items-center w-48">
               <div className="w-48 pl-4">
                 <h1 className="text-black text-xl font-semibold">{Notes[key].name}</h1>
@@ -152,7 +151,8 @@ function Notes_pane() {
 function Brief_pane() {
   return (
     <>
-      <div className="w-full h-[18rem] border-2 flex justify-center items-center flex-col">
+      <div className="w-[80%] p-5 pt-1 h-full border-2 flex justify-center items-center flex-col">
+      <div className="text-2xl text-black text-start pb-1">Your Statistics</div>
         <ActivityChart />
       </div>
     </>
@@ -161,12 +161,12 @@ function Brief_pane() {
 
 function DashWindow() {
   return (
-    <div className='w-full h-fit bg-slate-200'>
+    <div className='w-full h-fit overflow-y-auto bg-white'>
       <div className='lg:flex'>
         <Overview_pane />
         <Assistant_pane />
       </div>
-      <div className='lg:flex'>
+      <div className='lg:flex h-[50%]'>
         <Notes_pane />
         <Brief_pane />
       </div>
