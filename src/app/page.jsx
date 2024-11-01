@@ -128,10 +128,10 @@ function Notes_pane() {
       <motion.div
         variants={container}
         initial="hidden"
-        animate="visible" className="w-full pt-3 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+        animate="visible" className="pl-6 w-full pt-3 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
         {Object.keys(Notes).map((key) => (
-          <motion.div key={key} variants={item} className="w-56 h-48 bg-gradient-to-br from-cyan-50 via-sky-200 to-sky-300 hover:shadow-2xl hover:shadow-sky-600 transition-all duration-300 flex flex-col justify-start space-y-2 items-center p-4 border-2 border-neutral-400">
-            <div className="flex justify-start items-center w-48">
+          <motion.div key={key} variants={item} className="lg:w-56 w-80 lg:h-48 h-56 bg-gradient-to-br from-cyan-50 via-sky-200 to-sky-300 hover:shadow-2xl hover:shadow-sky-600 transition-all duration-300 flex flex-col justify-start space-y-2 items-center p-4 border-2 border-neutral-400">
+            <div className="flex justify-around items-center w-full">
               <div className="w-48 pl-4">
                 <h1 className="text-black text-xl font-semibold">{Notes[key].name}</h1>
                 <h1 className="text-black text-xl">Notes</h1>
@@ -140,7 +140,7 @@ function Notes_pane() {
                 <PaperClipIcon className="size-7 stroke-black" />
               </div>
             </div>
-            <div className="text-black w-42 pl-4 flex justify-center">{Notes[key].desc}</div>
+            <div className="text-black w-42 lg:pl-4 pl-8 flex justify-center">{Notes[key].desc}</div>
           </motion.div>
         ))}
       </motion.div>
