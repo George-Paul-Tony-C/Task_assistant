@@ -14,12 +14,13 @@
   "dependencies": {
     "@heroicons/react": "^2.1.5",
     "chart.js": "^4.4.5",
+    "eslint-config-next": "^15.0.2",
     "framer-motion": "^11.11.9",
     "moment": "^2.30.1",
-    "next": "15.0.2",
-    "react": "19.0.0-rc-02c0e824-20241028",
+    "next": "^15.0.2",
+    "react": "^19.0.0-rc-603e6108-20241029",
     "react-chartjs-2": "^5.2.0",
-    "react-dom": "19.0.0-rc-02c0e824-20241028",
+    "react-dom": "^19.0.0-rc-603e6108-20241029",
     "react-hot-toast": "^2.4.1"
   },
   "devDependencies": {
