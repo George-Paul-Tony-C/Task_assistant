@@ -43,7 +43,7 @@ export function Calendar() {
           calendarDays.push(
             <td
               key={`day-${dayCount}`}
-              className={`p-4 ${isday ? 'bg-indigo-100 ring-2 ring-indigo-400 text-black flex backdrop-blur-2xl shadow-2xl shadow-indigo-700' : 'hover:bg-blue-100 hover:backdrop-blur-2xl hover:shadow-2xl hover:shadow-blue-700'}`}
+              className={`p-4 ${isday ? 'hover:bg-blue-100 bg-indigo-100 hover:backdrop-blur-2xl hover:shadow-2xl hover:shadow-blue-700' : 'hover:bg-blue-100 hover:backdrop-blur-2xl hover:shadow-2xl hover:shadow-blue-700'}`}
             >
               <div className='flex justify-center items-center '>
                 {dayCount}

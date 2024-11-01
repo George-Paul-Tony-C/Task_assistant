@@ -128,9 +128,9 @@ function Notes_pane() {
       <motion.div
         variants={container}
         initial="hidden"
-        animate="visible" className="pl-6 w-full pt-3 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+        animate="visible" className="lg:pl-6 gap-2 w-full pt-3 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
         {Object.keys(Notes).map((key) => (
-          <motion.div key={key} variants={item} className="lg:w-56 w-80 lg:h-48 h-56 bg-gradient-to-br from-cyan-50 via-sky-200 to-sky-300 hover:shadow-2xl hover:shadow-sky-600 transition-all duration-300 flex flex-col justify-start space-y-2 items-center p-4 border-2 border-neutral-400">
+          <motion.div key={key} variants={item} className="lg:w-56 w-80 lg:h-48 h-64 bg-gradient-to-br from-cyan-50 via-sky-200 to-sky-300 hover:shadow-2xl hover:shadow-sky-600 transition-all duration-300 flex flex-col justify-start space-y-2 items-center p-4 border-2 border-neutral-400">
             <div className="flex justify-around items-center w-full">
               <div className="w-48 pl-4">
                 <h1 className="text-black text-xl font-semibold">{Notes[key].name}</h1>
