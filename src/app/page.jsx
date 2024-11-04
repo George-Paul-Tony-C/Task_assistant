@@ -47,7 +47,7 @@ function Taskpane() {
         initial="hidden"
         animate="visible" className="flex flex-col items-center justify-evenly h-[18rem] lg:pl-2 pl-8 lg:pr-2">
         {Object.keys(Task).map((key) => (
-          <motion.div key={key} variants={item} className="text-black rounded-sm bg-gradient-to-br from-neutral-50 via-neutral-50 to-blue-400 flex lg:w-[26rem] w-80 h-20 items-center justify-between ring-neutral-300 ring-2 p-4">
+          <motion.div key={key} variants={item} className="text-black rounded-sm bg-gradient-to-br from-neutral-50 via-neutral-50 to-blue-400 flex lg:w-[26rem] w-80 h-20 items-center justify-between ring-blue-200/50 ring-2 p-4">
             <div>
               <p className="lg:text-xl text-sm">{Task[key].date}</p>
               <h2 className="font-semibold lg:text-xl text-sm">{Task[key].name}</h2>
@@ -60,10 +60,10 @@ function Taskpane() {
         ))}
       </motion.div>
       <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 100, scale: 1 }} className="lg:w-[26rem] w-full flex justify-between lg:pl-0 pl-8 h-18">
-        <button className="bg-gray-100 hover:bg-blue-200 transition-all duration-100 rounded-sm w-[48%] h-8 ring-neutral-300 ring-2 flex justify-evenly items-center">
+        <button className="bg-gray-100 hover:bg-blue-200 transition-all duration-100 rounded-sm w-[48%] h-8 ring-blue-200/50 ring-2 flex justify-evenly items-center">
           <ArrowPathIcon className="size-6 stroke-black" />
         </button>
-        <button className="bg-gray-100 hover:bg-blue-200 transition-all duration-100 rounded-sm w-[48%]  h-8 ring-neutral-300 ring-2 flex justify-evenly items-center">
+        <button className="bg-gray-100 hover:bg-blue-200 transition-all duration-100 rounded-sm w-[48%]  h-8 ring-blue-200/50 ring-2 flex justify-evenly items-center">
           <PlusIcon className="size-6 stroke-black" />
         </button>
       </motion.div>
@@ -130,7 +130,7 @@ function Notes_pane() {
         initial="hidden"
         animate="visible" className="lg:pl-6 gap-2 w-full pt-3 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
         {Object.keys(Notes).map((key) => (
-          <motion.div key={key} variants={item} className="lg:w-56 w-80 lg:h-48 h-64 bg-gradient-to-br from-cyan-50 via-sky-200 to-sky-300 hover:shadow-2xl hover:shadow-sky-600 transition-all duration-300 flex flex-col justify-start space-y-2 items-center p-4 border-2 border-neutral-400">
+          <motion.div key={key} variants={item} className="lg:w-56 w-80 lg:h-48 h-64 bg-gradient-to-br from-cyan-50 via-sky-200 to-sky-300 hover:shadow-2xl hover:shadow-sky-600 transition-all duration-300 flex flex-col justify-start space-y-2 items-center p-4 ring-1 ring-blue-300/50">
             <div className="flex justify-around items-center w-full">
               <div className="w-48 pl-4">
                 <h1 className="text-black text-xl font-semibold">{Notes[key].name}</h1>
