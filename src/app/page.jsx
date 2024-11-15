@@ -1,9 +1,10 @@
+'use client'
 
 import { PlusIcon, ArrowPathIcon, CheckIcon, EllipsisHorizontalIcon, PaperClipIcon } from "@heroicons/react/24/outline";
 import { PlayIcon } from "@heroicons/react/24/solid";
 import * as motion from "framer-motion/client"
 import { ActivityChart } from "@/components/dashboard/graphs";
-
+import toast from 'react-hot-toast';
 
 // Replace by Fetch after Designing Backend
 import Task from "@/MockData/mocktasks.json"
@@ -28,7 +29,9 @@ const item = {
   }
 };
 
-
+function reschedule(){
+  toast.success('Successfully Rescheduled!')
+}
 
 export default function Home() {
   return (
@@ -42,10 +45,12 @@ export default function Home() {
 function Taskpane() {
   return (
     <div className="flex flex-col items-center lg:p-4 p-1 pt-2 bg-white">
+      {(Object.keys(Task).length) == 0 ? 
+      <div className="h-[18rem] w-full flex flex-col items-center justify-evenly text-2xl text-black">No Tasks</div>:
       <motion.div
         variants={container}
         initial="hidden"
-        animate="visible" className="flex flex-col items-center justify-evenly h-[18rem] lg:pl-2 pl-8 lg:pr-2">
+        animate="visible" className={`flex flex-col items-center justify-evenly  ${(Object.keys(Task).length) != 0 ? 'h-[18rem]' : 'h-0 hidden'} lg:pl-2 pl-8 lg:pr-2`}>
         {Object.keys(Task).map((key) => (
           <motion.div key={key} variants={item} className="text-black rounded-sm bg-gradient-to-br from-neutral-50 via-neutral-50 to-blue-400 flex lg:w-[26rem] w-80 h-20 items-center justify-between ring-blue-200/50 ring-2 p-4">
             <div>
@@ -58,9 +63,10 @@ function Taskpane() {
             </div>
           </motion.div>
         ))}
-      </motion.div>
+      </motion.div>}
+      
       <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 100, scale: 1 }} className="lg:w-[26rem] w-full flex justify-between lg:pl-0 pl-8 h-18">
-        <button className="bg-gray-100 hover:bg-blue-200 transition-all duration-100 rounded-sm w-[48%] h-8 ring-blue-200/50 ring-2 flex justify-evenly items-center">
+        <button onClick={reschedule} className="bg-gray-100 hover:bg-blue-200 transition-all duration-100 rounded-sm w-[48%] h-8 ring-blue-200/50 ring-2 flex justify-evenly items-center">
           <ArrowPathIcon className="size-6 stroke-black" />
         </button>
         <button className="bg-gray-100 hover:bg-blue-200 transition-all duration-100 rounded-sm w-[48%]  h-8 ring-blue-200/50 ring-2 flex justify-evenly items-center">
