@@ -2,6 +2,10 @@
 > This Project is a work in progress and is not suitable to be used at this moment.<br>
 > Star the repository for progress and preview release updates.
 
+
+> [!IMPORTANT]
+> We are planning on a major rework of UI and Certain Mechanics. <br>
+> Support for native application in Windows, Linux, MacOS, Android and IOS is also planned.
 <hr>
 
 # Task Assistant
