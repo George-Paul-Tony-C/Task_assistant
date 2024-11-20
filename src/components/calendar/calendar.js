@@ -7,19 +7,21 @@ export function Calendar() {
     const today = new Date();
     const [currentMonth, setCurrentMonth] = useState(today.getMonth());
     const [currentYear, setCurrentYear] = useState(today.getFullYear());
+    const [monthInput, setMonthInput] = useState("");
   
-    // Array of month names
     const monthNames = [
       'January', 'February', 'March', 'April', 'May', 'June',
       'July', 'August', 'September', 'October', 'November', 'December'
     ];
-  
-    // Function to get number of days in a month
+
+    React.useEffect(() => {
+      setMonthInput(monthNames[currentMonth]);
+    }, [currentMonth]);
+
     const getDaysInMonth = (month, year) => {
       return new Date(year, month + 1, 0).getDate();
     };
   
-    // Function to render the calendar days
     const renderCalendarDays = () => {
       const firstDay = new Date(currentYear, currentMonth, 1).getDay();
       const daysInMonth = getDaysInMonth(currentMonth, currentYear);
@@ -28,12 +30,10 @@ export function Calendar() {
       const calendarDays = [];
       let dayCount = 1;
   
-      // Add empty cells before the first day of the month
       for (let i = 0; i < firstDay; i++) {
         calendarDays.push(<td key={`empty-${i}`} className="p-4 text-gray-400"></td>);
       }
   
-      // Add actual calendar days
       for (let i = firstDay; i < 42; i++) {
         if (dayCount <= daysInMonth) {
           const isday =
@@ -58,54 +58,109 @@ export function Calendar() {
   
       return calendarDays;
     };
+
   
-    // Handler for changing the month
-    const handleMonthChange = (e) => {
-      setCurrentMonth(parseInt(e.target.value));
+    const handleMonthInput = (e) => {
+      const inputMonth = e.target.value.trim(); 
+      setMonthInput(inputMonth);
+  
+      const monthIndex = monthNames.findIndex(
+        month => month.toLowerCase().startsWith(inputMonth.toLowerCase())
+      );
+  
+      if (monthIndex !== -1) {
+        setCurrentMonth(monthIndex);
+      }
     };
   
-    // Handler for changing the year
-    const handleYearChange = (e) => {
-      setCurrentYear(parseInt(e.target.value));
+    const handleYearInput = (e) => {
+      const year = parseInt(e.target.value);
+      if (!isNaN(year)) {
+        setCurrentYear(year);
+      }
     };
-  
-    // Generate years for the dropdown (e.g., from 1950 to 2050)
+
     const years = [];
     for (let i = today.getFullYear() - 50; i <= today.getFullYear() + 50; i++) {
       years.push(i);
     }
+
+    const incrementMonth = () => {
+      if (currentMonth === 11) {
+        setCurrentMonth(0);
+        setCurrentYear(currentYear + 1);
+      } else {
+        setCurrentMonth(currentMonth + 1);
+      }
+    };
   
+    const decrementMonth = () => {
+      if (currentMonth === 0) {
+        setCurrentMonth(11);
+        setCurrentYear(currentYear - 1);
+      } else {
+        setCurrentMonth(currentMonth - 1);
+      }
+    };
+  
+    const incrementYear = () => {
+      setCurrentYear(currentYear + 1);
+    };
+  
+    const decrementYear = () => {
+      setCurrentYear(currentYear - 1);
+    };
     return (
-      <div className="p-5 border-r-2 border-gray-200 text-black">
-        <div className="text-3xl text-black mb-4">Calendar Page</div>
-        <div className="max-w-md mx-auto p-6 bg-white rounded-lg">
-          <div className="flex justify-between items-center mb-4">
-            {/* Month dropdown */}
-            <select
-              value={currentMonth}
-              onChange={handleMonthChange}
-              className="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      <div className="p-5 w-[30%] border-r-2 border-gray-200 text-black">
+      <div className="text-3xl text-black mb-4">Calendar Page</div>
+      <div className="max-w-md mx-auto p-6 bg-white rounded-lg">
+        <div className="flex justify-between items-center mb-4">
+          {/* Month toggle and input */}
+          <div className="flex items-center">
+            <button
+              onClick={decrementMonth}
+              className="p-2 bg-blue-200 rounded-md mr-2"
             >
-              {monthNames.map((month, index) => (
-                <option key={index} value={index}>
-                  {month}
-                </option>
-              ))}
-            </select>
-  
-            {/* Year dropdown */}
-            <select
-              value={currentYear}
-              onChange={handleYearChange}
-              className="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              {'<'}
+            </button>
+            <input
+              type="text"
+              value={monthInput}  // Month input field is controlled
+              onChange={handleMonthInput}
+              className="p-2 w-28 text-center border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Month"
+            />
+            <button
+              onClick={incrementMonth}
+              className="p-2 bg-blue-200 rounded-md ml-2"
             >
-              {years.map((year, index) => (
-                <option key={index} value={year}>
-                  {year}
-                </option>
-              ))}
-            </select>
+              {'>'}
+            </button>
           </div>
+
+          {/* Year toggle and input */}
+          <div className="flex items-center">
+            <button
+              onClick={decrementYear}
+              className="p-2 bg-blue-200 rounded-md mr-2"
+            >
+              {'<'}
+            </button>
+            <input
+              type="text"
+              value={currentYear !== '' ? currentYear : ''}
+              onChange={handleYearInput}
+              className="p-2 w-16 text-center border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="YYYY"
+            />
+            <button
+              onClick={incrementYear}
+              className="p-2 bg-blue-200 rounded-md ml-2"
+            >
+              {'>'}
+            </button>
+          </div>
+        </div>
           <table className="w-full table-fixed">
             <thead>
               <tr>
